@@ -1,6 +1,8 @@
 <%@ page contentType="text/html; charset=euc-kr" %>
 
 <%
+	// result.... 기본값 false .. 처음 시작할 때는 result = false 일때만 보여줘
+	// checkDuplication.do 한 이후에 이 페이지를 다시 호출.
 	boolean result=false;
 	if(request.getAttribute("result") != null){
 		result=((Boolean)request.getAttribute("result")).booleanValue();
@@ -19,6 +21,7 @@
 window.onload = function(){
 	document.getElementById("userId").focus();
 	document.getElementById("userId").onkeydown = function(){
+		// Enter
 		if(event.keyCode == '13') fncCheckDuplication();
 	}
 }

@@ -17,6 +17,7 @@ public class GetUserAction extends Action{
 		String userId=request.getParameter("userId");
 		
 		UserService service=new UserServiceImpl();
+		// findUser
 		UserVO vo=service.getUser(userId);
 		
 		request.setAttribute("vo", vo);

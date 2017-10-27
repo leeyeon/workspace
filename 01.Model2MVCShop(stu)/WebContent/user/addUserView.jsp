@@ -252,6 +252,7 @@ function resetData() {
 			- 
 			<input type="text" name="phone3" class="ct_input_g" 
 						style="width:100px; height:19px"  maxLength="9" />
+			<!-- javascript에서 phone의 value 값을 붙혔음.. -->
 			<input type="hidden" name="phone" class="ct_input_g"  >
 		</td>
 	</tr>

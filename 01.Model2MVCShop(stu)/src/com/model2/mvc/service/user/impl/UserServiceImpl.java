@@ -21,12 +21,13 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public UserVO loginUser(UserVO userVO) throws Exception {
-			UserVO dbUser=userDAO.findUser(userVO.getUserId());
-
-			if(! dbUser.getPassword().equals(userVO.getPassword()))
-				throw new Exception("로그인에 실패했습니다.");
-			
-			return dbUser;
+		UserVO dbUser=userDAO.findUser(userVO.getUserId());
+		
+		// 아이디가 틀릴때  || 비밀번호가 다를때
+		if((dbUser == null) || (! dbUser.getPassword().equals(userVO.getPassword())))
+			throw new Exception("로그인에 실패했습니다.");
+		
+		return dbUser;
 	}
 
 	public UserVO getUser(String userId) throws Exception {

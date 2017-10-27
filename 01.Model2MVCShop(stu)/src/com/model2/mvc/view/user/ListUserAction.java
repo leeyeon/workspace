@@ -25,7 +25,9 @@ public class ListUserAction extends Action {
 		searchVO.setPage(page);
 		searchVO.setSearchCondition(request.getParameter("searchCondition"));
 		searchVO.setSearchKeyword(request.getParameter("searchKeyword"));
+		// System.out.println(searchVO.getSearchCondition()+" :: "+searchVO.getSearchKeyword());
 		
+		// web.xml context-param ø° ¿÷¿Ω
 		String pageUnit=getServletContext().getInitParameter("pageSize");
 		searchVO.setPageUnit(Integer.parseInt(pageUnit));
 		

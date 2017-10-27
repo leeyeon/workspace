@@ -8,6 +8,7 @@ public class UserVO {
 	private String userId;
 	private String userName;
 	private String password;
+	// 권한 .. admin 과 user로 나뉨
 	private String role;
 	private String ssn;
 	private String phone;

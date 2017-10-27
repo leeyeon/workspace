@@ -1,0 +1,14 @@
+package com.model2.mvc.service.product.dao;
+
+public class ProductDAO {
+
+	public ProductDAO() {
+	}
+	
+	public ProductVO findProduct(int index) {
+		
+	}
+	
+	
+
+}

@@ -8,6 +8,7 @@
 	String role="";
 
 	if(vo != null) {
+		// admin 인지 user 인지 체크한다.
 		role=vo.getRole();
 	}
 %>

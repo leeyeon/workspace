@@ -45,10 +45,14 @@ public class RequestMapping {
 			System.out.println("className : " + className);
 			className = className.trim();
 			try{
+				// className 클래스 loading.
 				Class c = Class.forName(className);
+				// className 의 인스턴스를 생성한다!!!!!!
 				Object obj = c.newInstance();
+				// 같은 instance 인지 확인
 				if(obj instanceof Action){
 					map.put(path, (Action)obj);
+					// 캐스팅한 className을 action에 담는다.
 					action = (Action)obj;
 				}else{
 					throw new ClassCastException("Class형변환시 오류 발생  ");

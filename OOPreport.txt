@@ -937,104 +937,35 @@ ServletContext : html/jsp/servlet... 에 대한 정보가 있음 => 표준화된
 :: Was 구동 시 Servlet loading 이 된다. // 페이지 열기 전에 init 해주는 것.
 controller servlet 에 startup을 하면 될듯함.
 
+128. java.Servlet.Filter ... FilterChain ... 인터셉트랑 다르게 web.xml 에 정보를 기술한다.
+
+필터(Filter)의 기능 – 필터로 할 수 있는 것들
+
+인증(사용자 인증)
+로깅 및 감사 필터
+이미지 변환
+데이터 압축
+암호화 필터
+토크나이징(Tokenizing) 필터
+XML 컨텐츠를 변형하는 XSLT 필터
+Mime-Type 체인 필터
+URL 및 기타 정보들을 캐시하는 필터
+
+인터셉터.
+
+- preHandle() : 컨트롤러 들어가기 전
+- postHanle() : 컨트롤러 들어갔다 나온후 뷰로 보내기전
+- afterCompletion() : 뷰까지 끝나고 나서
 
 
+필터.
+ - init() : 필터 인스턴스 초기화
+ - doFilter() : 전/후 처리
+ - destroy() : 필터 인스턴스 종료
 
+129. javascript :: phone1이 변경되었을 때, phone2으로 넘어갈때. (phone1: select / phone2: input text)
+onChange="document.detailForm.phone2.focus();
 
+130. 자바스크립트를 html 주석 <!-- --> 으로 hiding 시킬 수 있음.
 
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////  javascript 정리 ///////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-- 변수 : var (변수 선언시 모두 var 만 쓰면 됩니당)
-- alert(~~) : 경고창 띄우는거 디버깅할 때 쓰기 좋음
-- 주석 : /* */
-- 비교연산자
-  == / != :  값 비교
-  === / !== : 값과 데이터형 비교
-
-- false로 간주되는 데이터형
- (1) '' : 빈 문자열
- (2) undefined : undefined
-                  데이터형이 정의 되지 않은 것. null이 아니다.
- (3) null : null
- (4) NaN : Not a Number ( 숫자가 아닌 것)
-      "1000" + "1000" = 10001000
-      내가 원하는 건 숫자 더하는건데 
-      => 왜 이런 에러가 나오는지? :: 문자열을 합쳤기 때문임. 고로, 형변환을 해야되.
-      
-      parseInt("1000") + parseInt("1000") = 2000
-
-      => 숫자인지 아닌지 확인하는 방법 : isNaN("확인할 변수명")
-
- var a; a : 초기화하지 않은 변수
-
-- function 함수
-(1) 함수 정의법 1 => 함수를 함수 자체로 불러서 쓸때
-    밑에 인자 return 은 모두 생략되어 표기했지만 사용할 수 있는것임
-    function 함수명 ( [인자 [,인자]] ) {
-           code
-    [return 반환값;]
-    }
-
-(2) 함수 정의법 2 => 함수를 변수로 지정하여 쓸떄
-   var 변수명 = function ( [인자 [.인자]] ) {
-
-  };
-
-(3) 함수 정의법 3 => 즉시 실행할 때 함수명 지정
-    (function 함수명() {
-
-    }() );
-
-(4) 함수 정의법 4 => 즉시 실행할 때 함수명 필요없어
-    (function() {
-
-    }() );
-
-
-- 배열
-
-var li = {'a', 'b', 'c', 'd', 'e'};
-
-li.push('f');	맨 마지막에 넣기
-li = li.concat(['f', 'g']); 복수 요소 넣을 때
-li.unshift('z');	시작점에 넣기
-li.splice(2, 0, 'B');	2번째부터 0개 요소 삭제하고 'B' 넣기
-		=> 반환값 : 삭제된 요소
-		=> li는 삭제하고 무언갈 넣은 것이 남은 배열
-li.shift();		첫번째 요소 지우기
-li.pop();		맨 마지막 지우기
-li.sort();		정렬
-li.reverse();	역순 정렬
-
-********** 중요 !!! 이벤트 다루는 법 *******
-
-1) HTML에 inline으로 등록
-<div onclick="alert('clicked!');">Click me!</div>
-
-
-2) element의 onload 속성을 통한 등록
-<div id="domId">Click me!</div>
-<script>
-var element = document.getElementById("domId");
-element.onclick = function () {
-    alert("clicked!");
-}
-</script>
-3) addEventListener/attachEvent를 이용한 등록
-<div id="domId">Click me!</div>
-<script>
-var element = document.getElementById("domId");
-element.addEventListener("click", function () {
-    alert("clicked!");
-}, false);
-</script>
-
-
-출처: http://unikys.tistory.com/312 [All-round programmer]
+132. event.keyCode == '13' :: Enter

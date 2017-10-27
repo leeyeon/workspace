@@ -16,9 +16,12 @@ public class RequestFilter implements Filter{
 	}
 
 	public void doFilter(ServletRequest arg0, ServletResponse arg1,	FilterChain arg2) 
-																						throws IOException, ServletException {
+				throws IOException, ServletException {
+		// 傈贸府
 		arg0.setCharacterEncoding("euc-kr");
+		
 		arg2.doFilter(arg0, arg1);
+		// 饶贸府
 	}
 
 	public void destroy() {
