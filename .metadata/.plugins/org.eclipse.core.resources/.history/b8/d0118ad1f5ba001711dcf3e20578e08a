@@ -1,0 +1,7 @@
+package com.model2.mvc.view.product;
+
+import com.model2.mvc.framework.Action;
+
+public class AddProductAction extends Action {
+
+}
