@@ -1,0 +1,1040 @@
+﻿ << OOP의 이해 >>	이연희
+
+1. OOP (Object Oriented Programming : 객체 지향 프로그래밍)
+ 기존의 C 와 같은 절차 지향적 프로그래밍에서는 현실세계에서 일어나는 일을 모두 표현할 수 없음.
+ ( 예를 들면,, 강사님이 말씀하셨던 강이 흐르다가 갑자기 멈추는 것과 같은 일은 현실에서 일어나지 않는다.. )
+ 그러므로, 현실세계를 표현할 수 있는 프로그래밍이 필요했는데 그것이 객체 지향!!..
+ 현실의 모든 것을 객체로 생각하고 본다면 프로그래밍이 가능하다고 한다.
+ 사람 객체가 있으면 각각의 객체마다 이름,나이,외모 등이 다름. 그게 특징(중 상태)! 객체마다 원하는 바를 주고 받을 때
+ 현실세계에서는 말이나 글로 할 수 있지만, 컴퓨터 상으로는 메시지로 통함 (클래스 안의 메소드?로 주고받음?)
+
+ => 현실 세계를 시스템화 하는 프로그래밍
+
+2. Object (객체)
+ OOP를 이해하기 위한 핵심 개념으로, (왜냐면 '객체' 지향의 프로그래밍을 이해하려면 객체를 알아야 하니까)
+ 객체는 상태(State) 와 행동(Behavior)을 가진다는 특징이 있음. 컴퓨터에서 상태는 변수, 행동은 메소드로 나타내어진다고 함.
+ ( 클래스가 하나의 객체를 만들어주게 되는 것?,, 인스턴스 변수가 하나의 객체가 된다... 사람=>클래스 이연희=>인스턴스 변수(객체?) )
+
+ => 현실 세계
+
+3. Class (클래스)
+ 객체의 공통된 특성을 모아서 만든 것..
+
+ => Object를 attribute(자바 표현: field)와 behaivor(자바 표현: method)을 이용하여 Modeling 한 것.
+
+4. abstraction (추상화)
+
+ => 구체적인 객체의 특성들의 공통된 특성을 모아서 일반적인 특성으로 정의내리는 과정! system modeling~
+
+5. Generalization (일반화) / Inheritance (상속) - extends
+
+ => 추상화시킨 것의 결과물이 일반화된 것... (model)
+	이 것들에게 살을 덧붙힐 수 있는데, 일반화된 것들을 상속받으면 가능함.
+
+6. Specialization (구체적/특수화)
+
+ => 추상화된 객체들 각각의 특성을 더한것..
+
+ Generalization 와 Specialization : is a 관계
+
+7. Realization (실체화) : interface - implements
+ 
+ 레알 마드리드~~~~
+ => 인터페이스를 클래스로 정의하기
+
+8. Association (연관)
+
+ B ----------------> A
+ has a 관계
+ 계속 사용할 거기 떄문에 변수 만들어서 다회성으로 사용하는 관계
+ ( 1대1도 되고 1대다도 됨 )
+
+9. dependency (종속)
+
+ B -----(use)------> A
+ B 메소드에서 A 클래스 인스턴스 생성해서 사용하고 버리는 관계 (일회성)
+
+10. Polymorphism (다형성)
+
+ => 동일한 인터페이스 지원
+	같은 모니터이지만, 사용법은 같으니 다른 모델이여도 문제없음!
+
+11. Encapuslation (캡슐화) / 절차은닉 / Information Hiding (정보은닉)
+
+ => 정보를 필요로 하는 사람에게만 정보를 보여주는 OOP의 특징인데,,
+	정보를 제공할 과정을 보여 줄 필요가 없으니 나누는 것이 절차은닉이고
+	인터넷뱅킹 사용자의 비밀번호를 공개하지 않는 것처럼 정보를 보여선 안되는 정보를 숨기는 것이 정보은닉인 것 같다.
+
+
+
+12. Coding Convention
+
+ => 코딩할 때 지향하는 방법론에 따라서 변수를 정의하는 방법..
+  Camel Case : java, c++ 과 같은 언어 (객체 지향) intArray
+  Snake Case : C 와 같은 언어 (절차 지향) int_array
+
+
+13.        Modeling       + Programming
+  (요구사항 정의 -> 분석 -> 설계) + (->구현)
+
+14. Model (모델) : 모델링해서 나온 결과값(output)
+
+15. UML (표기법) : Unified Modeling Language
+
+16. 오버로딩
+
+17. gettor method : field 정보를 return
+
+18. super : 상위 클래스를 지칭
+
+17. this : 현 클래스를 지칭
+
+18. Constructod (생성자) : 생성자는 한번만 호출!!
+    default 생성자 꼭 만들기!
+
+19. 오버라이딩 : 상위클래스에 있는 메소드를 하위클래스에서 재정의
+	     1개의 클래스에서 메소드 활용
+	     => Polymorphism
+
+20. IDE (통합개발환경) : Intergrated Development Environment
+
+21. Data
+
+22. DB (DataBase) : 데이터 정규화
+
+23. jar : 자바 아카이브 (자바의 압축파일)
+	rt.jar 에 있는 클래스를 어떻게 알지?
+	=> classpath 의 default 값 현재폴더 & rt.jar 있는 폴더
+
+	String 쓰는데 import java.lang.String 안 하는 이유?
+	=> 생략되어있음
+
+    src.zip : rt.jar 에 있는 클래스 분석할 수 있도록 오픈소스 폴더..
+
+24. CSV가 다 다름
+    폴더 \ (윈도우...)
+    디렉토리 / (유닉스)
+    Package . (자바)
+
+25. API : Application Programming Interface
+
+
+
+javac -d . PackageTest02.java
+java package 디렉토리 생성됨
+
+26. Package : 모두 소문자로 정의 . 왜? Dos에서 대/소문자 구분X
+		unique 하게 naming 할 것
+		오픈소스 => 사이트 도메인을 거꾸로 씀~~~ com.ibm.*
+
+27. Access Modifier => Encapsulation 때문에
+
+public : 누구나 다 접근할 수 있음
+private : 나만 접근할 수 있음
+protected : 신뢰성 있는 애한테는 오픈하고 ( 상속받은 거나 같은 패키지 일때 )
+	    아니면 오픈X
+_____(default) : 패키지만 접근할 수 있음
+
+28. Modifier => Object Modeling 시 특별한 기능
+
+static : 메모리 loss / 객체지향에 맞지 않는 이슈 해결
+	 상태와 무관한 행위 / 값... static 선언
+	 클래스변수 / 클래스메소드
+
+	 => "공유" 라는 개념!!! static 으로 설정하면 같은 곳의 메모리 주소만을 바라보기 땜에
+
+	 같은 클래스 내에 static 처리되어 있는 메서드 사이에서는 클래스명.메서드() 이렇게 쓰지 않아도 됨~
+	 ( 써도 되고 )
+
+final : 못고침 ( class, field, Method ) 확장 X ,, math class & field pi 같은거
+
+abstract : 1. 상위클래스에서 사용하지 않는 메소드가 있다 지울까?
+	   2. 하위클래스에서 상위에서 쓰지 않는다는 메소드를 오버라이딩하지 않는다면?
+
+
+
+
+29. String Class
+ "abc".concat("def") : abcdef
+ "~~~".substring(int beginIndex) : beginIndex부터 출력
+ "~~~".substring(int beginIndex, int endIndex) : beginIndex부터 endIndex까지 출력
+ "~~~".indexOf("XX") : XX 시작하는 부분의 index 리턴 (int)
+ "~~~".length() : String 문자열의 char 갯수 리턴
+ "~~~".charAt(index) : index에 있는 char값 출력
+ String.valueOf(E) : string 으로 형변환
+ "~~~".toUpperCase() : 대문자로 변경
+ "~~~".toLowerCase() : 소문자로 변경
+
+
+30. List<E> : index 구조를 이용하여 코딩할 경우 사용하기!!!
+
+* Array : 같은 DataType만 관리 , 크기 변경 불가
+* Vector : 다른 DataType도 관리 , 크기 변경 가능
+
+Vector : 배열.. 동기화 보정이 되어 있어서 데이터 처리시 안정성이 보장됨.
+	 생성 시 크기를 안정해도 됨~ List의 특징을 가짐.
+
+	 Vector vc = new Vector();
+
+	 vc.add(E obj); Vector에 데이터 추가
+		Object obj ... 개발자가 어떤 데이터형을 넣을 지 모르기때문에 Object형으로 형변환하여서 넣어짐 (자동으로~)
+	 vc.remove(E obj); Vector에 데이터 제거함 (객체)
+	 vc.elementAt(int index); 인덱스에 들어있는 데이터 return
+	 vc.insertElementAt(E obj, int index); obj를 index에다가 삽입. 나머지 다 뒤로 인덱스가 +1 됨
+	 vc.setElementAt(E obj, int index); obj를 index에다가 넣기
+
+	Vector(int initialCapacity, int capacityIncrement)
+	//	Constructs an empty vector with the specified initial capacity and capacity increment.
+	//	initialCapacity - the initial capacity of the vector
+	초기 배열값
+	//	capacityIncrement - the amount by which the capacity is increased when the vector overflows
+	overflow 됐을 떄 증가할 수 있는 최대 배열값?
+
+	Vector()
+	empty Vector 작성하고, 내부 데이터배열의 사이즈가 10이며, 표준 capacity 증가는 0
+
+	
+	//Vector 내부에 저장된 값 size()만큼 반복, 1개씩 추출하여 Object에 담아준다
+	for(Object object:vector) {
+	 System.out.print( (String)object );
+	}
+
+ArrayList :
+
+	get(int index) : index에 있는 값 불러옴
+	add(E obj) : 차례대로 집어넣기
+	add(int index, E obj) : index 자리에 obj 끼워넣기
+	set(int index, E obj) : index 자리에 obj 바꿔치기
+	remove(int index) : index 삭제
+
+
+LinkedList
+Stack
+
+
+31. 인코딩(incoding) : 부호화
+
+32. 디코딩(deconding) : 복호화
+
+33. 파싱(parsing) : 문자열을 CSV를 구분하여 원하는 데이터를 얻는 것
+
+34. 수도코딩 : 말로 하는 코딩을 의미함
+
+35. 아스키코드
+
+36. 인터페이스(interface) && implements
+    = pure abstract class
+
+    => modeling 시 기능만 정의하고 싶을 때 / rule 정의
+    기능의 통일을 위해 사용... realization 지원하기 위해 interface 나옴
+
+37. 다이아몬드 프라블럼 (diamond ploblem)
+ => java 다중상속 지원 X
+
+38. local variable (지역 변수) : 메소드 안에서 한번쓰고 버림!! 일회성
+
+39. Null : 아무것도 참조 하지 않는 거
+	   java.lang.nullPointException error
+	   . 앞 뒤로 참조 안된 것이 있는 지 print로 확인 해보깅
+
+40. garbage : 메모리 차지 X
+    garbage collector
+    garbage collecting : 메모리 안 쓰는 거 없애주는 행동
+    garbage collection : garbage collector 가 garbage collecting 하는 거
+
+41. Deprecated : 과거 문제가 있던 API 를 수정했으므로, 다른 클래스를 이용하도록 추천해줌
+    => 중요도가 떨어져 더 이상 사용되지 않고 앞으로는 사라지게 될 (컴퓨터 시스템 기능 등)
+
+42. Wrapper Class : primitive DataType 을 객체로 만들어 다형성을 유지하기 위해
+
+43. String/ StringBuffer
+
+44. for 문과 foreach 문 사용법
+
+    String numbers = {~~~};
+    for(int i=0; i<numbers.length; i++)
+    for(String number: numbers)
+
+    둘이 같은 의미임
+
+45. interface 기반 프로그래밍 : polymophism 을 이용한 프로그래밍으로, 폭넓게 코딩이 가능
+			  EnCapsulation (캡슐화) // 절차은닉이 가능
+
+46. 자료구조 (Collection)
+ (1) FIFO (Queue) ex.터널
+     LinkedList
+
+ (2) FILO (Stack) ex.컵 안의 동전
+     List
+
+47. Exception (예외 처리) : try-catch(-finally), throw 등을 이용하여 예외를 처리할 수 있도록 도와준다,, 에러 무시 혹은 그에 맞는 적절한 처리가 가능함
+    => robust App (견고한 어플리케이션)
+    throw : 던지다, 폭탄돌리기 (main method에...) 궁극적으로는 try-catch를 이용하여 예외를 처리해야됨!
+    catch() 안에는 Throwable 포함하여 하위만 가능하다!!
+    try {
+    } catch(E~~~e) {
+    } finally { //반드시 실행 .. catch 안에 return 있을떄 아래 코드 실행 안하지만 finally안에 있는 코드는 실행함
+    }
+
+    try-catch 말고 throws 쓰는 이유 : 개발편의성
+
+48. ArrayList가 Vector보다 빠른 성능! 이유는 동기화 => 쓰레드 관련...
+
+49. Stack trace: 스택구조를 따라서 에러추적
+
+50. System.exit(0) : process kill (application end)
+    return; : method end
+
+51. Exception 종류
+   RuntimeException : uncheckedException
+		      개발자가 varidation을 체크할 수 있어, 견고한 코딩이 가능하다.
+		      그러므로, unchecked
+
+   그 외 Exception : checkedException
+
+52. JRE (java runtime environment) : JVM + API
+    JDK : JRE + tool
+
+53. inner        Class (추후에 학습)
+    (1) member
+    (2) local
+    (3) Anonymous : 이름이 없는 클래스!!..
+
+    상속, 구현, association, dependency X ... 하나의 클래스만 관련있음
+
+    OuterClass$InnerClass -> class파일 $로 구분됨 : member class,, class 안에 class 있음
+    OuterClass$1InnerClass -> class파일 $뒤에 숫자 + class명 : local class,, 메소드 안에 class 있는 inner local class
+    OuterClass$1 -> class파일 $뒤에 숫자 : Annoymous class
+
+
+
+54. A a =new A();
+    a.a();
+    a = null;
+    -
+    (=)    gabage Collection
+    -
+    new A().a();
+
+55. URL : Uniform Resource Locator
+    URI : Uniform Resuorce Identifier
+
+http:// IP : port / OOO / ~.html/~.jsp (URL)
+                      ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ(URI)
+
+
+56. GUI : Graphical User Interface
+
+57. java : server side 용임! c++과 비교하여 속도 떨어짐. 왜? 직접 OS에 접근안함
+
+58. block : 입력을 기다리는 것 (wait)
+
+59. input 할 때 글자 뒤에 엔터랑 줄바꿈 하는 문자가 내부적으로 들어가 있음
+
+60. Unicode / Ascii
+
+61. 프로세스 : OS에서 돌고 있는 어플리케이션 하나하나 / OS 실행단위
+
+62. java io 특징
+   단반향 모델링 , FUFI IO Block, 유연한 구조
+
+
+63. 절대경로 : C나 D 부터 시작하는 경로 주소
+    상대경로 : 
+
+64. EOF : the end of the file
+
+65. String.split(String 구분자) => String[]
+
+66. 프로토콜(protocol) : 규약
+
+67. 어플리케이션 프로토콜
+
+68. NullString  ==> String s =  new String()
+    String name = "";
+
+69. 스레드(thread) - Multi Thread... Multi Tasking 지원하는 OS
+
+70. lifeCycle (생명주기)
+
+71. Multi Queue : 큐가 여러개 (구멍 뚫린 큐)
+
+72. 이벤트 : 로그인버튼을 누르면 로그인이 되는 것과 같이 순간순간의 상황들
+
+73. 배타제어 : 한놈에 하나씩..
+
+74. CUI : Characnter User Interface
+    GUI : Graphic User Interface
+
+
+75. SQL : Structured Query Language
+
+76. DBMS : DataBase Management System
+   RDBMS : Relational DBMS // RDBMS의 표준 명령어는 SQL
+
+    ERD : Entity Relation Diagram
+  = TRD : Table Relation Diagram
+
+ table : DB 기본단위 ( = Entity )
+	2차원 구조로 Data 저장소
+
+	  Cell
+	--(o)-> Row / Recoad
+	   -
+	   -
+	   - Column (DataType)
+
+
+
+
+
+77. JDBC : Java DataBase Controller
+
+78. DDL (Data Definition Language) : 데이터 구조 정의
+
+79. DML (Data Manipulation Language) : 데이터 검색 및 수정
+
+80. DCL (Data Control Language) : DB 사용자 권한 제어
+
+81. TCL (Transaction Control Language)
+
+82. Select : Query
+
+83. 오라클이 OS local 정보를 가져와서 세팅해줌. (대표적으로 DATE의 format)
+
+84. PL/SQL (오라클에서 부가적으로 제공해주는 쿼리)
+ set linesize 1000;
+
+85. SQL 함수
+    ==> NVL(a, b) a가 null 이면 b로 바꿔라
+    ==> NVL2(a, b, c) a가 null 이 아니면 b, null이면 c로 바꿔라
+    ==> 반올림함수 ROUND(VALUE, 반올림자리수)
+    ==> 버림    함수 TRUNC (VALUE,  버림자리수)
+
+< CONCATENATION :: COLUMN 합성 >
+
+SELECT
+name || title
+FROM emp_test;
+
+
+
+< 중복 제거 >
+DISTINCT !!
+뒤에 있는 것들 '조합'의 중복을 제거해준다.
+한 개의 컬럼만 아님ㅎㅎ
+====> 1대 1의 관계를 만들어줄라고
+
+
+
+< 제약 조건 >
+무결성을 유지하기 위해 조건을 걸어줌.
+개체의 무결성
+관계의 무결성
+
+
+
+SELECT * FROM TAB;
+=> 테이블 등록된 거 보는거
+
+
+86. 서브 쿼리 : 메인쿼리 안 조건에 들어가는 쿼리
+
+87. = : 단일행
+    IN: 다중행
+
+88. single row subquery: 메인 쿼리로 하나 전달
+    multi row subquery : 메인 쿼리로 여러개 전달
+    multi column subquery : 컬럼을 두 개 이상 비교
+    inline view : from 절 상의 쿼리 ... ( 가상테이블 생성 )
+
+
+89. HTTP : 통신 프로토콜 , ~에 접근해라. defalut
+
+90. statement < preparedStatement
+ 싱글/더블 쿼티션 -> 실수 유발
+ parsing -> complie -> run ... 반복작업
+
+91. connection pool
+
+92. TCL...트랜잭션 : 원자성
+ autoCommit(false) 
+ -> commit / rollback 제어
+ autoCommit(ture) //default값
+
+93. WAS : Web Application Server => ex. tomcat
+ Web Server + App(Servlet/jsp container) ...
+
+ servlet container = set engine
+******************************* PORT 번호 변경하기 *****************************************
+1. SQL Plus 실행 : sqlplus /nolog
+2. Database 접속 : CONNECT SYSTEM/설치할 때 입력한 패스워드
+3. Port 변경 명령 수행 : EXEC DBMS_XDB.SETHTTPPORT(5000);
+4. SQL Plus 종료 : exit
+**************************************************************************************************
+
+94. browser : html 파싱 -> display
+
+95. servlet / jsp : browser가 인식할 수 있는 표준화된 웹 기술
+
+
+
+**********************************************************************************
+*********************** edu Web Application 생성하기 **********************
+**********************************************************************************
+
+ㅇ web.xml  : web application 환경파일(deployment descriptor)
+
+ㅇ server.xml : tomcat 환경파일
+
+ㅇ 새로운 web Application 생성
+	1. tomcat 환경파일 server.xml 에 새로운 Web Application 등록
+	2. 새로 생성된 Web Application 의 설정은 web.xml 에 기술
+
+
+1.  edu Web Application directory  만들기
+	ㅇ 루트 폴더에 edu 폴더생성			:  c:\edu
+	ㅇ edu 폴더에 WEB-INF 폴더 생성		:  c:\edu\WEB-INF
+	ㅇ WEB-INF 폴더에 classes 폴더 생성	 :  c:\edu\WEB-INF\classes
+	ㅇ web.xml 파일 만들기 : WEB-INF 폴더에...
+	     ==> 실습에서는 만들기 않고
+	     ==> [TOMCAT_HOME]\webapps\ROOT\WEB-INF 폴더에 
+	             존재하는 web.xml을 copy 후 아래와 같이 수정하자 
+
+=============================   아    래     ================================
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+</web-app>
+=======================================================================
+
+2. 새로 생성한 edu Web Application  Tomcat 환경파일 server.xml 등록
+	==> [TOMCAT_HOME]\conf\server.xml의 163 line 아래와 추가
+	==> 추가된 부분(edu Web Application 등록)
+          <Context path="/edu" docBase="c:/edu" debug="0" reloadable="true" />
+
+
+3. edu Web Application  Tomcat WAS 등록 확인 
+	
+	ㅇ examples Web Application 에 copy 한 
+		- tomcatGreeting.html, firstJSP.jsp를  c:\edu에 copy
+		- FirstServlet.class를 c:\edu\WEB-INF\classes에 copy
+	
+	ㅇ tomcat  shut-down 후 다시 구동시킨후
+		browser 에서
+		http://127.0.0.1:8080/edu/tomcatGreeting.html
+		http://127.0.0.1:8080/edu/firstJSP.jsp
+
+	ㅇ servlet 접근 URI web.xml 에 등록
+	    c:\edu\WEB-INF 폴더의 내부에 web.xml 화일 아래와 같이 편집
+
+========================   아    래     ===========================
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+	<servlet>
+		<servlet-name>FirstServlet</servlet-name>
+		<servlet-class>FirstServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FirstServlet</servlet-name>
+		<url-pattern>/FirstServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- http://ip/port/edu/FirstServlet -->
+
+</web-app>
+=============================================================
+
+	ㅇ Tomcat  shut-down 후 다시 구동시킨후
+		browser 에서
+		http://127.0.0.1:8080/edu/FirstServlet       확인
+
+
+4. http://127.0.0.1:8080/edu  요청시 index 구조  나오게 설정
+	ㅇ [TOMCAT_HOME]/conf/web.xml  112line  true 설정
+		<init-param>
+	            <param-name>listings</param-name>
+	            <param-value>true</param-value>
+		</init-param>
+   ㅇ Tomcat 다시 구동후 http://127.0.0.1:8080/edu  확인
+
+=============================================================
+
+
+**********************************************************************************
+*********************** edu Web Application 생성하기 **********************
+**********************************************************************************
+
+ㅇ web.xml  : web application 환경파일(deployment descriptor)
+
+ㅇ server.xml : tomcat 환경파일
+
+ㅇ 새로운 web Application 생성
+	1. tomcat 환경파일 server.xml 에 새로운 Web Application 등록
+	2. 새로 생성된 Web Application 의 설정은 web.xml 에 기술
+
+
+1.  edu Web Application directory  만들기
+	ㅇ 루트 폴더에 edu 폴더생성			:  c:\edu
+	ㅇ edu 폴더에 WEB-INF 폴더 생성		:  c:\edu\WEB-INF
+	ㅇ WEB-INF 폴더에 classes 폴더 생성	 :  c:\edu\WEB-INF\classes
+	ㅇ web.xml 파일 만들기 : WEB-INF 폴더에...
+	     ==> 실습에서는 만들기 않고
+	     ==> [TOMCAT_HOME]\webapps\ROOT\WEB-INF 폴더에 
+	             존재하는 web.xml을 copy 후 아래와 같이 수정하자 
+
+=============================   아    래     ================================
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+</web-app>
+=======================================================================
+
+2. 새로 생성한 edu Web Application  Tomcat 환경파일 server.xml 등록
+	==> [TOMCAT_HOME]\conf\server.xml의 163 line 아래와 추가
+	==> 추가된 부분(edu Web Application 등록)
+          <Context path="/edu" docBase="c:/edu" debug="0" reloadable="true" />
+                      //검색명        //실질적인 경로
+
+
+3. edu Web Application  Tomcat WAS 등록 확인 
+	
+	ㅇ examples Web Application 에 copy 한 
+		- tomcatGreeting.html, firstJSP.jsp를  c:\edu에 copy
+		- FirstServlet.class를 c:\edu\WEB-INF\classes에 copy
+	
+	ㅇ tomcat  shut-down 후 다시 구동시킨후
+		browser 에서
+		http://127.0.0.1:8080/edu/tomcatGreeting.html
+		http://127.0.0.1:8080/edu/firstJSP.jsp
+
+	ㅇ servlet 접근 URI web.xml 에 등록
+	    c:\edu\WEB-INF 폴더의 내부에 web.xml 화일 아래와 같이 편집
+
+========================   아    래     ===========================
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0"
+  metadata-complete="true">
+
+	<servlet>
+		<servlet-name>FirstServlet</servlet-name>
+		<servlet-class>FirstServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FirstServlet</servlet-name>
+		<url-pattern>/FirstServlet</url-pattern>
+	</servlet-mapping>
+
+	<!-- http://ip/port/edu/FirstServlet -->
+
+</web-app>
+=============================================================
+
+	ㅇ Tomcat  shut-down 후 다시 구동시킨후
+		browser 에서
+		http://127.0.0.1:8080/edu/FirstServlet       확인
+
+
+4. http://127.0.0.1:8080/edu  요청시 index 구조  나오게 설정
+	ㅇ [TOMCAT_HOME]/conf/web.xml  112line  true 설정
+		<init-param>
+	            <param-name>listings</param-name>
+	            <param-value>true</param-value>
+		</init-param>
+   ㅇ Tomcat 다시 구동후 http://127.0.0.1:8080/edu  확인              
+
+
+96. webserver : html, 이미지, css .. :: 정적인 자원
+     servlet / jsp : 동적인 자원
+
+97. was : container
+
+98. java SE : stand alone
+     java EE : server 개념이 들어간 SE
+
+99. 플러그인 : plug in... 필요한 거 모듈 추가
+
+100. java.util.Enumeration<java.lang.String> <= getParameterNames() 
+       hasMorElements()
+       nextElement()
+
+
+101. 세개의 컴퓨터 쓰면 : three tear
+      shin client  --   middle wear  ------ pet server
+        browser      논리(성능 좋아야됨)     데이터
+
+ => 
+
+      두 개 컴퓨터 : twe tear
+      pet client ------------------ shin server
+      클라이언트(성능 좋아야됨)
+
+      N 개 컴퓨터 : N tear
+
+102. web client -------------------- static Contents ----------------- Server-side Presentation / Business Logic
+         browser                                web server                                                    servlet container
+                                                                                                                         servlet / JDBC
+
+업무 순서(Business Logic)
+회원가입 => insert
+내 정보 보기 => select
+내 정보 수정 => select(pwd check) -> select(info check) -> update
+                   : select 2번 / update 1번
+
+
+Server-side Presentation / Business Logic 나누는 것 : 2 layer Architecture
+         (servlet)                     (JDBC)
+
+103. meta data : 부수적인 데이타
+      ex) DB.txt (DB 정보)
+
+104. html => form 안의 button 눌렀을 때 동작안하도록 하기
+   1. button 태그를 form 태그 안에서 밖으로 빼놓는다.
+   2. button 태그를 input type="button"으로 바꾼다.
+   3. button 태그 안에 type="button"을 추가한다.
+
+105. DBCP : DataBase Connection Pool
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////  javax.sql.DataSource 등록하기 ////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+1.  javax.sql.DataSource 는 J2SE API 에서  ConnectionPool SPEC. 으로 Vendor 구현
+
+
+2. WAS(Vendor) 가 구현 할 수 있도록 설정
+==> [Tomcat_Home]/webapps/docs/index.html의 documnet참조하면.....
+
+ㅇ server.xml 
+
+		<Context  docBase="~~~~~"   path="~~~~~"  reloadable="true">
+		          <Resource
+		            name="jdbc/ora"
+		            type="javax.sql.DataSource"
+		            driverClassName="oracle.jdbc.driver.OracleDriver"
+		            password="tiger"
+		            maxIdle="10"
+		            maxWait="5000"
+		            validationQuery="select * from tab"
+		            username="scott"
+		            url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		            maxActive="100"/>
+		</Context> 
+
+maxWait : -1 이면 무한정 기다리기
+		
+3. WebApplication 설정
+
+==> [Tomcat_Home]/webapps/docs/index.html의 documnet참조하면.....
+
+ㅇ web.xml
+		<resource-ref>
+			<res-ref-name>jdbc/ora</res-ref-name>
+			<res-type>javax.sql.DataSource</res-type>
+			 <res-auth>Container</res-auth>
+		</resource-ref>
+
+4. apache home -> lib 에 ojdbc14.jar 넣어주기.
+    => 왜냐하면, dataSource 쓰려면 tomcat이 driver 필요하잖아????
+     
+///////////////////////////////////////////////////////////////////////////////////////////////////
+	
+106. DAO (DATA ACCESS OBJECT)
+      => CRUD 중심 (creat, read, update, delete)
+
+
+107. 404 에러 = page를 찾을 수 없음
+
+ (1) 내 project - web.xml mapping 잘 되어있는지 확인
+
+ (2) server - servers.xml - context 정의 되어있는지 확인
+
+ (3) server - web.xml - listings 의 value 가 true 인지 확인
+
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
+listings => param-value true!!
+
+108. marker interface : 오버라이딩 할 것이 없는 interface
+      ex) singltThreadModel...
+     WAS가 저 인터페이스가 있는 걸 마킹 => 인스턴스를 만듬 ...=> 자바의 장점을 포기
+
+109. web.xml -> metadata
+     여기에 선언적 예외처리를 지정해놓으면 was가 알아서 처리해줌.
+     throws 가 container로 보내니까
+
+110. closs browsing
+     브라우저별로 세팅이 다르기 때문에, 브라우저별로 다르게 대응하는 법
+html, css, 그리고 javascript 작성시 W3C 의 web standard (웹규격) 에 맞는 코딩을 함으로써 어느 브라우져에서나 기기에서 사이트가 제대로 보여지고 작동되도록 하는 기법
+
+     => http://caniuse.com/  Can I USE 홈페이지에서 내가 쓰고 싶은 css나 javascript를 넣으면 작동되는지 아닌지 알려줌.
+
+111. model 1 web architecture : jsp(Presentation) + bean(Business Logic)
+     model 2 web architecture : bean(M) + jsp(V) + servlet(C) ( 2 Layor Architecture + MVC )
+
+112. 내장객체 : java가 자동으로 만들어주는 객체
+
+113. 한글 변환....
+     <%@ page contentType="text/html; charset=euc-kr" %>
+
+114. jsp : C:\apache-tomcat\work\Catalina\localhost\edu\org\apache\jsp
+         html 안에 java코드
+     Servlet : 직접 java를 만듬
+         java 안에 html코드
+
+115.
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+jsp는 위 클래스를 기본으로 import 한다. => tmp 파일 확인해보면 있다
+
+116. eclipse .java (temp... jsp 실행시 java 파일 생성되는 곳) 위치
+C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\edu\org\apache\jsp\jw06
+(밑은 서버에 바로 생기는 tmp 파일)
+C:\apache-tomcat\work\Catalina\localhost\edu\org\apache\jsp
+117. jspf : 모듈화한 페이지 가독성 좋게 표시함
+
+118. MVC : model과 view 를 컨트롤 , 전산의 기본 구조
+     - Model : 뷰와 컨트롤러 사이에서 전달되는 데이터만을 기지고 있는거 VO //
+                    아니면 데이터에 대한 작업에 대한 규칙..? DAO
+     - View : 사용자 눈에 보여지는 부분 // 사용자 인터페이스로 Model에 의해 업데이트됨.
+     - Controller : 뷰와 모델을 연결시켜주고.. 모델 조작이나 데이터 흐름 제어 // 직접 view를 업데이트 하지 않는다.
+                        javaCode , M/V connect(object scope), navigation(제어권 넘기기)
+
+ 동사무소 : 접수-> 데이터 처리->내보내기
+
+
+119. DTO ( Data Transfer Object ) = VO ( Value Object ) 와 같은 개념.
+                                                   => layor 와 layor 간에 데이터 교환 테크닉
+      DAO ( Data Access Object )
+
+120. object scope : get&set Attribute
+                          뭔가 데이터를 빼오고 가져오는 것
+      session / request / application
+
+121. application scope : tomcat memory... 동기화문제 발생할 수 있음
+
+122. 제어권 넘기기 = navigation
+      (1) <jsp:forward ~ />
+ request a.jsp => response b.jsp
+
+	// 방어적 코딩 / WorkFlow control => url 안바뀜
+	<% if(request.getMethod().equals("GET")) { %>
+		<jsp:forward page="login.html"/>
+	<% } %>
+
+      (2 )response.sendRedirect(path)
+ request a.jsp => response a.jsp => request b.jsp => reponse b.jsp
+
+	// 방어적 코딩 /  WorkFlow Control => rul 바뀜
+	if( request.getMethod().equals("GET") ){
+		response.sendRedirect("addUser.html");
+		return;
+	 }
+
+123. include
+두 가지의 방법이 있는데, 진행순서는 비슷하지만 파일을 include하는 방식이 다르다.
+별개의 파일을 연결만 해주는 것과 include해야할 파일을 직접 넣어주는 것. (JC 가 만든 .java를 보면 확연히 차이가 남.)
+     (1) <jsp:include page ~ >
+            <jsp:param name = "" value = "" />
+         </jsp:include>
+
+request A.jsp -> B.jsp로 이동해서 주루룩 진행 -> response A.jsp
+request scope을 이용하여,, request.getParameter // request.getAttribute 로 값을 불러올 수 있음.
+
+     (2) <%@include file ~ %>
+request A.jsp -> A.jsp 안에 B.jsp (or txt...) 를 집어넣고 주루룩 진행 -> response B.jsp
+지역변수를 사용해서 써도 된다. 왜냐면 포함되어 있으니까~
+
+124. 표준화된 폴더구조
+    web application / servlet directory / servlet context
+  OOO : html / jsp
+  - WEB-INF
+      - classes : servlet / bean
+      - lib : ~.jar
+      - web.xml : ServletConfig
+
+ServletContext : html/jsp/servlet... 에 대한 정보가 있음 => 표준화된 폴더구조 추상화
+
+125. 모듈화 각각 작업할 때
+
+ DB 연결안하고
+///Method
+	public void  getUser(UserVO userVO){
+		
+		System.out.println("[ UserDAO.getUser() start........]");
+		
+		// UserVO의 Value 확인
+		System.out.println( userVO.toString() );
+		
+		if( userVO.getUserId() != null && userVO.getUserId().length() >=3 
+			&& userVO.getUserPasswd() != null && userVO.getUserPasswd().length() >=3	){
+			userVO.setActive(true);
+		}
+		
+		// UserVO의 Value를 확인하면....
+		System.out.println( userVO.toString() );
+		
+		//==> 본예제는 Presentation Layer 의 Controller  이해하는 예제이다
+		//==> Business Layer(구체적으로 Persistence Layer)에서의  DAO 는  
+		//==> 아래의 역할은 진행 한 것으로 한다.
+		/*
+		 * 1. Connection 객체 획득( DataSource :: ConnectionPool)
+		 * 2. Statement 객체 획득 (CRUD 수행)
+		 * 3. ResultSet 객체 획득 (CRUD 결과 획득)
+		 * 4. UserVO의 id / pwd 와 DBMS통신으로 얻은 Value 와 비교
+		 * 5. UserVO의 active 변경 
+		 */
+		System.out.println("[ UserDAO.getUser() end........]\n");
+	}//end of getUser()
+
+이런식으로 코딩해놓고 Presentation단 개발..
+
+126. Binding (바인딩) : Model과 View 연결 (Connect)
+
+127. web.xml 의 servlet 안에 <load-on-startup>1</load-on-startup>
+:: Was 구동 시 Servlet loading 이 된다. // 페이지 열기 전에 init 해주는 것.
+controller servlet 에 startup을 하면 될듯함.
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////  javascript 정리 ///////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- 변수 : var (변수 선언시 모두 var 만 쓰면 됩니당)
+- alert(~~) : 경고창 띄우는거 디버깅할 때 쓰기 좋음
+- 주석 : /* */
+- 비교연산자
+  == / != :  값 비교
+  === / !== : 값과 데이터형 비교
+
+- false로 간주되는 데이터형
+ (1) '' : 빈 문자열
+ (2) undefined : undefined
+                  데이터형이 정의 되지 않은 것. null이 아니다.
+ (3) null : null
+ (4) NaN : Not a Number ( 숫자가 아닌 것)
+      "1000" + "1000" = 10001000
+      내가 원하는 건 숫자 더하는건데 
+      => 왜 이런 에러가 나오는지? :: 문자열을 합쳤기 때문임. 고로, 형변환을 해야되.
+      
+      parseInt("1000") + parseInt("1000") = 2000
+
+      => 숫자인지 아닌지 확인하는 방법 : isNaN("확인할 변수명")
+
+ var a; a : 초기화하지 않은 변수
+
+- function 함수
+(1) 함수 정의법 1 => 함수를 함수 자체로 불러서 쓸때
+    밑에 인자 return 은 모두 생략되어 표기했지만 사용할 수 있는것임
+    function 함수명 ( [인자 [,인자]] ) {
+           code
+    [return 반환값;]
+    }
+
+(2) 함수 정의법 2 => 함수를 변수로 지정하여 쓸떄
+   var 변수명 = function ( [인자 [.인자]] ) {
+
+  };
+
+(3) 함수 정의법 3 => 즉시 실행할 때 함수명 지정
+    (function 함수명() {
+
+    }() );
+
+(4) 함수 정의법 4 => 즉시 실행할 때 함수명 필요없어
+    (function() {
+
+    }() );
+
+
+- 배열
+
+var li = {'a', 'b', 'c', 'd', 'e'};
+
+li.push('f');	맨 마지막에 넣기
+li = li.concat(['f', 'g']); 복수 요소 넣을 때
+li.unshift('z');	시작점에 넣기
+li.splice(2, 0, 'B');	2번째부터 0개 요소 삭제하고 'B' 넣기
+		=> 반환값 : 삭제된 요소
+		=> li는 삭제하고 무언갈 넣은 것이 남은 배열
+li.shift();		첫번째 요소 지우기
+li.pop();		맨 마지막 지우기
+li.sort();		정렬
+li.reverse();	역순 정렬
+
+********** 중요 !!! 이벤트 다루는 법 *******
+
+1) HTML에 inline으로 등록
+<div onclick="alert('clicked!');">Click me!</div>
+
+
+2) element의 onload 속성을 통한 등록
+<div id="domId">Click me!</div>
+<script>
+var element = document.getElementById("domId");
+element.onclick = function () {
+    alert("clicked!");
+}
+</script>
+3) addEventListener/attachEvent를 이용한 등록
+<div id="domId">Click me!</div>
+<script>
+var element = document.getElementById("domId");
+element.addEventListener("click", function () {
+    alert("clicked!");
+}, false);
+</script>
+
+
+출처: http://unikys.tistory.com/312 [All-round programmer]
