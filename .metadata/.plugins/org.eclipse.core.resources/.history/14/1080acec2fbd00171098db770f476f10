@@ -1,0 +1,96 @@
+package com.model2.mvc.service.product.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.HashMap;
+
+import com.model2.mvc.common.SearchVO;
+import com.model2.mvc.common.util.DBUtil;
+import com.model2.mvc.service.product.vo.ProductVO;
+
+public class ProductDAO {
+
+	public ProductDAO() {
+	}
+	
+	public ProductVO findProduct(int index) throws Exception {
+		
+		ProductVO productVO = new ProductVO();
+		
+		Connection con = DBUtil.getConnection();
+		
+		PreparedStatement pstmt = con.prepareStatement("SELECT PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
+													 + " FROM PRODUCT"
+													 + " WHERE PROD_NO = ?");
+		pstmt.setInt(1, 10000);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			productVO.setProdNo(rs.getInt(1));
+			productVO.setProdName(rs.getString(2));
+			productVO.setProdDetail(rs.getString(3));
+			productVO.setManuDate(rs.getString(4));
+			productVO.setPrice(rs.getInt(5));
+			productVO.setFileName(rs.getString(6);
+			productVO.setRegDate(rs.getDate(7));
+		}
+		
+		con.close();
+		
+		return productVO;
+	}
+	
+	public HashMap<String,Object> getProductList(SearchVO searchVO) throws Exception {
+		
+		HashMap<String,Object> map = new HashMap<String,Object>();
+		
+		Connection con = DBUtil.getConnection();
+		
+		PreparedStatement pstmt = con.prepareStatement("SELECT PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
+				 									+ " FROM PRODUCT");
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			ProductVO productVO = new ProductVO();
+			productVO.setProdNo(rs.getInt(1));
+			productVO.setProdName(rs.getString(2));
+			productVO.setProdDetail(rs.getString(3));
+			productVO.setManuDate(rs.getString(4));
+			productVO.setPrice(rs.getInt(5));
+			productVO.setFileName(rs.getString(6);
+			productVO.setRegDate(rs.getDate(7));
+			
+			map.put(rs.getString("PROD_NO"), productVO);
+		}
+		
+		con.close();
+		
+		return map;
+	}
+	
+	public void insertProduct(ProductVO productVO) throws Exception {
+		
+		Connection con = DBUtil.getConnection();
+		
+		PreparedStatement pstmt = 
+				con.prepareStatement("INSERT INTO PRODUCT (PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE)"
+							+ "VALUES (seq_product_prod_no.nextval,?,?,to_date(?, 'YYYY/MM/DD HH24:MI:SS'),?,?,sysdate)");
+		pstmt.setString(1, productVO.getProdName());
+		pstmt.setString(2, productVO.getProdDetail());
+		pstmt.setString(3, productVO.getManuDate());
+		pstmt.setInt(4, productVO.getPrice());
+		pstmt.setString(5, productVO.getFileName());
+		pstmt.executeUpdate();
+		
+		con.close();
+		
+	}
+	
+	public void updateProduct(ProductVO productVO) throws Exception {
+		
+	}
+
+}

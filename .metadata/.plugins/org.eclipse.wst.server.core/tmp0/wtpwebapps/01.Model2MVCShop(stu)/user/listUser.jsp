@@ -32,9 +32,11 @@
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
 <script type="text/javascript">
+<!--
 function fncGetUserList(){
 	document.detailForm.submit();
 }
+-->
 </script>
 </head>
 

@@ -22,24 +22,24 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void addProduct(ProductVO productVO) throws Exception {
 		// TODO Auto-generated method stub
-		
+		productDAO.insertProduct(productVO);
 	}
 
 	@Override
 	public ProductVO getProduct(int prodNo) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.findProduct(prodNo);
 	}
 
 	@Override
 	public HashMap<String, Object> getProductList(SearchVO searchVO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.getProductList(searchVO);
 	}
 
 	@Override
 	public void updateProduct(ProductVO productVO) throws Exception {
 		// TODO Auto-generated method stub
-		
+		productDAO.updateProduct(productVO);		
 	}
 }

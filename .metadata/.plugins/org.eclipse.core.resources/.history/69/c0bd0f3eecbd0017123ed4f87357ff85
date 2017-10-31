@@ -1,0 +1,49 @@
+package com.model2.mvc.service.purchase.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.HashMap;
+
+import com.model2.mvc.common.SearchVO;
+import com.model2.mvc.common.util.DBUtil;
+import com.model2.mvc.service.purchase.vo.PurchaseVO;
+
+public class PurchaseDAO {
+
+	public PurchaseDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public PurchaseVO findPurchase(int tranNo) throws Exception {
+		
+		return null;
+	}
+	
+	public HashMap<String,Object> getPurchaseList(SearchVO searchVO) throws Exception {
+		
+		return null;
+	}
+	
+	public HashMap<String,Object> getSaleList(SearchVO searchVO) throws Exception {
+		
+		return null;
+	}
+	
+	public void insertPurchase(PurchaseVO purchaseVO) throws Exception {
+		
+		Connection con = DBUtil.getConnection();
+		
+		String sql = "";
+		
+		PreparedStatement pstmt = con.prepareStatement(sql);
+	}
+	
+	public void updatePurchase(PurchaseVO purchaseVO) throws Exception {
+		
+	}
+	
+	public void updateTranCode(PurchaseVO purchaseVO) throws Exception {
+		
+	}
+
+}

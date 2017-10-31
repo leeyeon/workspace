@@ -43,10 +43,12 @@ public class ActionServlet extends HttpServlet {
 			
 			// 각각의 Action 별로 return 되는 String 값에 전송방식을 적어주면 나눠서 실행되는군.
 			// String.startsWith(str) ... str로 시작되면 true/ 아니면 false
-			if(resultPage.startsWith("forward:"))
+			if(resultPage.startsWith("forward:")) {
 				HttpUtil.forward(request, response, result);
-			else
+			}
+			else {
 				HttpUtil.redirect(response, result);
+			}
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

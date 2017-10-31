@@ -6,6 +6,7 @@ import java.sql.Date;
 public class ProductVO {
 	
 	private String fileName;
+	// 제조일자
 	private String manuDate;
 	private int price;
 	private String prodDetail;
@@ -66,10 +67,12 @@ public class ProductVO {
 		this.regDate = regDate;
 	}
 
-	// Override
+	@Override
 	public String toString() {
-		return "ProductVO : [fileName]" + fileName
-				+ "[manuDate]" + manuDate+ "[price]" + price + "[prodDetail]" + prodDetail
-				+ "[prodName]" + prodName + "[prodNo]" + prodNo;
-	}	
+		return "ProductVO [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
+				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate
+				+ ", proTranCode=" + proTranCode + "]";
+	}
+
+
 }

@@ -1,0 +1,71 @@
+package com.model2.mvc.service.purchase.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.HashMap;
+
+import com.model2.mvc.common.SearchVO;
+import com.model2.mvc.common.util.DBUtil;
+import com.model2.mvc.service.product.vo.ProductVO;
+import com.model2.mvc.service.purchase.vo.PurchaseVO;
+import com.model2.mvc.service.user.vo.UserVO;
+
+public class PurchaseDAO {
+
+	public PurchaseDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public PurchaseVO findPurchase(int tranNo) throws Exception {
+		
+		return null;
+	}
+	
+	public HashMap<String,Object> getPurchaseList(SearchVO searchVO) throws Exception {
+		
+		HashMap<String,Object> map = new HashMap<String,Obejct>();
+		
+		return null;
+	}
+	
+	public HashMap<String,Object> getSaleList(SearchVO searchVO) throws Exception {
+		
+		return null;
+	}
+	
+	public void insertPurchase(PurchaseVO purchaseVO) throws Exception {
+		
+		Connection con = DBUtil.getConnection();
+		
+		UserVO buyer = purchaseVO.getBuyer();
+		ProductVO product = purchaseVO.getPurchaseProd();
+		
+		String sql = "INSERT INTO TRANSACTION (TRAN_NO, PROD_NO, BUYER_ID, PAYMENT_OPTION, RECEIVER_NAME, RECEIVER_PHONE, "
+										+ "DLVY_ADDR, DLVY_REQUEST, TRAN_STATUS_CODE, ORDER_DATE, DLVY_DATE)"
+										+ " VALUES (seq_transaction_tran_no.nextval, ?,?,?,?,?, ?,?,?,SYSDATE,?)";
+		
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, product.getProdNo());
+		pstmt.setString(2, buyer.getUserId());
+		pstmt.setString(3, purchaseVO.getPaymentOption());
+		pstmt.setString(4, purchaseVO.getReceiverName());
+		pstmt.setString(5, purchaseVO.getReceiverPhone());
+		pstmt.setString(6, purchaseVO.getDivyAddr());
+		pstmt.setString(7, purchaseVO.getDivyRequest());
+		pstmt.setInt(8, 1); // 구매완료
+		pstmt.setString(9, purchaseVO.getDivyDate().replaceAll("-", "").trim());
+		
+		pstmt.executeUpdate();
+		
+		con.close();
+	}
+	
+	public void updatePurchase(PurchaseVO purchaseVO) throws Exception {
+		
+	}
+	
+	public void updateTranCode(PurchaseVO purchaseVO) throws Exception {
+		
+	}
+
+}

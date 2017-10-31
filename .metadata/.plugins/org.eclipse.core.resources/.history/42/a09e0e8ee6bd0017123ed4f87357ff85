@@ -1,0 +1,24 @@
+package com.model2.mvc.service.purchase.dao;
+
+import java.util.HashMap;
+
+import com.model2.mvc.common.SearchVO;
+import com.model2.mvc.service.purchase.vo.PurchaseVO;
+
+public class PurchaseDao {
+
+	public PurchaseDao() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public PurchaseVO findPurchase(int tranNo) {
+		
+		return null;
+	}
+	
+	public HashMap<String,Object> getPurchaseList(SearchVO searchVO) {
+		
+		return null;
+	}
+
+}

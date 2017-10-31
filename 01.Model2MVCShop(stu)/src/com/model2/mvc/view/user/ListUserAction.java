@@ -19,9 +19,10 @@ public class ListUserAction extends Action {
 		SearchVO searchVO=new SearchVO();
 		
 		int page=1;
-		if(request.getParameter("page") != null)
+		if(request.getParameter("page") != null) {
 			page=Integer.parseInt(request.getParameter("page"));
-		
+		}
+			
 		searchVO.setPage(page);
 		searchVO.setSearchCondition(request.getParameter("searchCondition"));
 		searchVO.setSearchKeyword(request.getParameter("searchKeyword"));
