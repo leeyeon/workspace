@@ -26,7 +26,27 @@
 		}
 	}
 	
+	int startPage = 1;
+			//((searchVO.getPage() * searchVO.getPageUnit()) - searchVO.getPageUnit()+1)%3;
+			
+	int tempPage = 4;
+	// tempPage = endPage;
+	if(request.getAttribute("tempPage") != null) {
+		tempPage = (Integer)request.getAttribute("tempPage");
+		startPage = tempPage - 3;
+		if(tempPage > totalPage) {
+			tempPage = totalPage;
+		}
+	}
+	
 	String menu = (String)request.getParameter("menu");
+	
+	System.out.println("startPage :: "+startPage);
+	System.out.println("tempPage :: "+tempPage);
+	System.out.println("endPage :: "+totalPage);
+	
+	//System.out.println("searchVO.getSearchKeyword()"+searchVO.getSearchKeyword());
+	//System.out.println("searchVO.getSearchCondition()"+searchVO.getSearchCondition());
 	
 	//Debug
 	/*
@@ -58,7 +78,7 @@ function fncGetProductList(){
 
 <div style="width:98%; margin-left:10px;">
 
-<form name="detailForm" action="/listProduct.do?menu=manage" method="post">
+<form name="detailForm" action="/listProduct.do?menu=<%=menu%>" method="post">
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -70,7 +90,11 @@ function fncGetProductList(){
 				<tr>
 					<td width="93%" class="ct_ttl01">
 					
+							<% if("search".equals(menu)) { %>
+							상품 목록조회
+							<% } else { %>
 							상품 관리
+							<% } %>
 					
 					</td>
 				</tr>
@@ -104,16 +128,22 @@ function fncGetProductList(){
 				<option value="1" selected>상품명</option>
 				<option value="2">상품가격</option>
 		<%
-			} else {
+			} else if(searchVO.getSearchCondition().equals("2")) {
 		%>
 				<option value="0" >상품번호</option>
 				<option value="1" >상품명</option>
 				<option value="2" selected>상품가격</option>
 		<%
+			} else {
+		%>
+				<option value="0" selected>상품번호</option>
+				<option value="1">상품명</option>
+				<option value="2">상품가격</option>
+		<%
 			}
-		%>				
+		%>	
 			</select>
-			<input type="text" name="searchKeyword" value="<%= searchVO.getSearchKeyword() %>"
+			<input type="text" name="searchKeyword" value=""
 					 class="ct_input_g" style="width:200px; height:19px" />
 		</td>
 	<% 
@@ -121,7 +151,7 @@ function fncGetProductList(){
 	%>
 		<td align="right">
 			<select name="searchCondition" class="ct_input_g" style="width:80px">
-				<option value="0">상품번호</option>
+				<option value="0" selected>상품번호</option>
 				<option value="1">상품명</option>
 				<option value="2">상품가격</option>			
 			</select>
@@ -186,8 +216,11 @@ function fncGetProductList(){
 		<td></td>
 		<td align="left">
 		
-			판매중
+		<%= vo.getProTranCode() %>
 		
+		<% if("manage".equals(menu) && "1".equals(vo.getProTranCode())) { %>
+			<a href="/updateTranCodeByProd.do?prodNo=<%=vo.getProdNo()%>&tranCode=2">배송하기</a>
+		<% } %>
 		</td>	
 	</tr>
 	<tr>
@@ -202,10 +235,27 @@ function fncGetProductList(){
 	<tr>
 		<td align="center">
 		<%
-			for(int i=1; i<=totalPage; i++) {
+			for(int i=startPage; i < tempPage; i++) {
+				if((i!=1) && (i==startPage)) {
 		%>
-			<a href="/listProduct.do?page=<%=i%>&menu=<%=menu%>"><%= i %></a>
+				<a href="/listProduct.do?page=<%=i%>&menu=<%=menu%>
+				&searchCondition=<%=searchVO.getSearchCondition()%>
+				&searchKeyword=<%=searchVO.getSearchKeyword()%>">이전</a>
 		<%
+				}
+		%>
+			<a href="/listProduct.do?page=<%=i%>&menu=<%=menu%>
+				&searchCondition=<%=searchVO.getSearchCondition()%>
+				&searchKeyword=<%=searchVO.getSearchKeyword()%>"><%= i %></a>
+		<%
+				if((i!=(totalPage-1))&&(i==tempPage-1)) {
+		%>
+				<a href="/listProduct.do?page=<%=i%>&menu=<%=menu%>
+				&searchCondition=<%=searchVO.getSearchCondition()%>
+				&searchKeyword=<%=searchVO.getSearchKeyword()%>
+				&tempPage=<%=i+1%>">다음</a>
+		<%
+				}
 			}
 		%>
     	</td>

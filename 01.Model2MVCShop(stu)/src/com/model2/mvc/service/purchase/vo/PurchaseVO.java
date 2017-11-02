@@ -92,12 +92,11 @@ public class PurchaseVO {
 	
 	@Override
 	public String toString() {
-		return "PurchaseVO [buyer=" + buyer + ", divyAddr=" + divyAddr
+		return "PurchaseVO [tranNo=" + tranNo +" [buyer=" + buyer + ", divyAddr=" + divyAddr
 				+ ", divyDate=" + divyDate + ", divyRequest=" + divyRequest
 				+ ", orderDate=" + orderDate + ", paymentOption="
 				+ paymentOption + ", purchaseProd=" + purchaseProd
 				+ ", receiverName=" + receiverName + ", receiverPhone="
-				+ receiverPhone + ", tranCode=" + tranCode + ", tranNo="
-				+ tranNo + "]";
+				+ receiverPhone + ", tranCode=" + tranCode + "]";
 	}
 }

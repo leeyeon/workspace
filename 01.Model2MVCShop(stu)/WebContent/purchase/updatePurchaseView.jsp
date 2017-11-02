@@ -1,7 +1,11 @@
+<%@page import="com.model2.mvc.service.purchase.vo.PurchaseVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<% 
+	PurchaseVO vo = (PurchaseVO)request.getAttribute("purchaseVO");
+	System.out.println(vo);
+%>
 
 <html>
 <head>
@@ -16,7 +20,7 @@
 
 <body bgcolor="#ffffff" text="#000000">
 
-<form name="updatePurchase" method="post"	action="/updatePurchase.do?tranNo=10010">
+<form name="updatePurchase" method="post"	action="/updatePurchase.do?tranNo=<%=vo.getTranNo()%>">
 
 <table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 	<tr>
@@ -44,8 +48,8 @@
 	<tr>
 		<td width="104" class="ct_write">구매자아이디</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">user02</td>
-		<input type="hidden" name="buyerId" value="user02">
+		<td class="ct_write01"><%= vo.getBuyer().getUserId() %></td>
+		<input type="hidden" name="buyerId" value="<%= vo.getBuyer().getUserId() %>">
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -56,8 +60,13 @@
 		<td class="ct_write01">
 			<select 	name="paymentOption" 	class="ct_input_g" style="width: 100px; height: 19px" 
 							maxLength="20">
+			<% if("1".equals(vo.getPaymentOption())) { %>
 				<option value="1" selected="selected">현금구매</option>
 				<option value="2">신용구매</option>
+			<% } else { %>
+				<option value="1">현금구매</option>
+				<option value="2" selected="selected">신용구매</option>			
+			<% } %>
 			</select>
 		</td>
 	</tr>
@@ -69,7 +78,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverName" 	class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="SCOTT" />
+							maxLength="20" value="<%= vo.getReceiverName() %>" />
 		</td>
 	</tr>
 	<tr>
@@ -80,7 +89,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverPhone" class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="010-1234-1234" />
+							maxLength="20" value="<%= vo.getReceiverPhone() %>" />
 		</td>
 	</tr>
 
@@ -92,7 +101,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverAddr" class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="null" />
+							maxLength="20" value="<%= vo.getDivyAddr() %>" />
 		</td>
 	</tr>
 	<tr>
@@ -103,7 +112,7 @@
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<input 	type="text" name="receiverRequest" 	class="ct_input_g" style="width: 100px; height: 19px" 
-							maxLength="20" value="null" />
+							maxLength="20" value="<%= vo.getDivyRequest() %>" />
 		</td>
 	</tr>
 	<tr>
@@ -113,8 +122,8 @@
 		<td width="104" class="ct_write">배송희망일자</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td width="200" class="ct_write01">
-			<input type="text" readonly="readonly" name="divyDate" class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="20"/>
+			<input type="text" readonly="readonly" name="divyDate" class="ct_input_g"
+						style="width: 100px; height: 19px" maxLength="20" />
 				<img 	src="../images/ct_icon_date.gif" width="15" height="15"	
 							onclick="show_calendar('document.updatePurchase.divyDate', document.updatePurchase.divyDate.value)"/>
 		</td>

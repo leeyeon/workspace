@@ -50,20 +50,24 @@ public class ProductDAO {
 		
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		Connection con = DBUtil.getConnection();
-		String sql = "SELECT PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
-					+ " FROM PRODUCT";
+		String sql = "SELECT TRAN_STATUS_CODE, PRODUCT.PROD_NO AS PROD_NO, PROD_NAME, "
+					+" PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
+					+" FROM product, transaction"
+					+" WHERE product.prod_no = transaction.prod_no(+)";
+		
 		if (searchVO.getSearchCondition() != null) {
 			if (searchVO.getSearchCondition().equals("0")) {
-				sql += " WHERE PROD_NO LIKE '" + searchVO.getSearchKeyword()
+				sql += " AND PRODUCT.PROD_NO LIKE '" + searchVO.getSearchKeyword()
 						+ "%'";
 			} else if (searchVO.getSearchCondition().equals("1")) {
-				sql += " WHERE PROD_NAME LIKE '" + searchVO.getSearchKeyword()
+				sql += " AND PROD_NAME LIKE '" + searchVO.getSearchKeyword()
 						+ "%'";
 			} else if (searchVO.getSearchCondition().equals("2")) {
-				sql += " WHERE PRICE >=" + searchVO.getSearchKeyword();
+				sql += " AND PRICE >=" + searchVO.getSearchKeyword();
 			}
-		}	
-		sql += " ORDER BY PROD_NO, PRICE";
+		}
+					
+		sql +=" ORDER BY PRODUCT.PROD_NO";
 		
 		PreparedStatement pstmt = con.prepareStatement(sql,
 				ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -82,6 +86,7 @@ public class ProductDAO {
 		//System.out.println("searchVO.getPageUnit():" + searchVO.getPageUnit());
 		
 		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
+		
 		if (total > 0) {
 			for (int i = 0; i < searchVO.getPageUnit(); i++) {
 				ProductVO productVO = new ProductVO();
@@ -92,6 +97,7 @@ public class ProductDAO {
 				productVO.setPrice(rs.getInt("PRICE"));
 				productVO.setFileName(rs.getString("IMAGE_FILE"));
 				productVO.setRegDate(rs.getDate("REG_DATE"));
+				productVO.setProTranCode(rs.getString("TRAN_STATUS_CODE"));
 				
 				list.add(productVO);
 				if (!rs.next())

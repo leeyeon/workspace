@@ -111,9 +111,13 @@
 		%>
 			배송중
 		<%
-			} else {
+			} else if("3".equals(vo.getTranCode().trim())){
 		%>
 			배송완료
+		<%
+			} else {
+		%>
+			판매중
 		<%
 			}
 		%>
@@ -122,6 +126,10 @@
 		<td></td>
 		<td align="left">
 			
+		<% if("2".equals(vo.getTranCode().trim())) {%>
+			<a href="/updateTranCode.do?tranNo=<%= vo.getTranNo() %>&tranCode=3">물건도착</a>
+		<% } %>
+		</td>
 		</td>
 	</tr>
 	<tr>
