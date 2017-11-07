@@ -64,24 +64,24 @@ public class ProductDAO {
 					+" WHERE product.prod_no = transaction.prod_no(+)";
 		
 		if (search.getSearchCondition() != null) {
-			if (search.getSearchCondition().equals("0")) {
+			if (search.getSearchCondition().equals("0") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PRODUCT.PROD_NO LIKE '" + search.getSearchKeyword()
 						+ "%'";
-			} else if (search.getSearchCondition().equals("1")) {
+			} else if (search.getSearchCondition().equals("1") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PROD_NAME LIKE '" + search.getSearchKeyword()
 						+ "%'";
-			} else if (search.getSearchCondition().equals("2")) {
+			} else if (search.getSearchCondition().equals("2") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PRICE >=" + search.getSearchKeyword();
 			}
 		}
 					
 		sql +=" ORDER BY PRODUCT.PROD_NO";
 		
-		System.out.println("UserDAO::Original SQL :: " + sql);
+		System.out.println("ProductDAO::Original SQL :: " + sql);
 		
 		//==> TotalCount GET
 		int totalCount = this.getTotalCount(sql);
-		System.out.println("UserDAO :: totalCount  :: " + totalCount);
+		System.out.println("ProductDAO :: totalCount  :: " + totalCount);
 		
 		//==> CurrentPage 게시물만 받도록 Query 다시구성
 		sql = makeCurrentPageSql(sql, search);

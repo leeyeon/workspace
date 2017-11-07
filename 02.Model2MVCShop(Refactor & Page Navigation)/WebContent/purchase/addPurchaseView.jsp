@@ -1,14 +1,12 @@
 <%@page import="com.model2.mvc.service.domain.Product"%>
-<%@page import="com.model2.mvc.service.domain.Purchase"%>
 <%@page import="com.model2.mvc.service.domain.User"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <% 
-	Purchase purchase = (Purchase)request.getAttribute("purchase");
-	User user = purchase.getBuyer();
-	Product product = purchase.getPurchaseProd();
+	Product product = (Product)request.getAttribute("product");
+	User user = (User)session.getAttribute("user");	
 %>
 
 <html>

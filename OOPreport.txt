@@ -404,6 +404,7 @@ http:// IP : port / OOO / ~.html/~.jsp (URL)
 
 84. PL/SQL (오라클에서 부가적으로 제공해주는 쿼리)
  set linesize 1000;
+ set pagesize 1000;
 
 85. SQL 함수
     ==> NVL(a, b) a가 null 이면 b로 바꿔라
@@ -435,7 +436,7 @@ DISTINCT !!
 
 
 SELECT * FROM TAB;
-=> 테이블 등록된 거 보는거
+=> 테이블 등록된 거 전부 다 보는거
 
 
 86. 서브 쿼리 : 메인쿼리 안 조건에 들어가는 쿼리
@@ -973,3 +974,26 @@ onChange="document.detailForm.phone2.focus();
 133. CSS : Cascading Style Sheet
 
 134. SQL - ROWNUM : DISPLAY 되는 로우에 번호부여
+
+135. advanced skill : OGNL 기반으로 기술이 개발됨.
+
+136. OGNL : Object Graph Navigation Language
+
+137. TL : Tag Library
+ <jsp:useBean ... >
+ <jsp:getProperty ... >
+
+138. JSTL : JSP Standard TL :: 자바 진영에서 표준화한 Tag Library
+ c (core)
+ , sql, fmt, xml ... => 우리가 안씀
+
+139. <%@ include ... > 와 <c:import ... > 와 <jsp:include ... > 의 차이점
+<%@ include file="" %> 정적으로 해당 jsp파일을 컴파일할 때 자바코드에 넣는다.
+<jsp:include> 동적으로 페이지를 포함시키는 거로, 해당 jsp가 실행 될 때 쭈룩 이어서 실행된다.
+<c:import> 동적임 // 다른 홈페이지도 넣을 수 있음
+
+140. 형상관리(CM: Configuration Management)
+ 프로젝트를 할 때 생성된 소스코드를 CVS나  SVN. GIT과 같은 버전 관리 시스템을 사용하는 것
+
+
+

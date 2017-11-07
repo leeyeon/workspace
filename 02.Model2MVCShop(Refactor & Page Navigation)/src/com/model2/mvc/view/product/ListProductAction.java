@@ -45,10 +45,10 @@ public class ListProductAction extends Action {
 						pageUnit, pageSize);
 		System.out.println("ListUserAction ::"+resultPage);
 		
+		
 		request.setAttribute("list", map.get("list"));
 		request.setAttribute("resultPage", resultPage);
 		request.setAttribute("search", search);
-		request.setAttribute("menu", request.getParameter("menu"));
 		//System.out.println(request.getParameter("menu"));
 		
 		return "forward:/product/listProduct.jsp";

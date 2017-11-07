@@ -88,27 +88,19 @@ function fncGetPurchaseList(currentPage) {
 		<td align="left"><%= vo.getReceiverPhone() %></td>
 		<td></td>
 		<td align="left">
-		현재
-		<%
-			if("1".equals(vo.getTranCode().trim())) {
-		%>
-			구매완료
-		<% 
-			} else if("2".equals(vo.getTranCode().trim())) { 
-		%>
-			배송중
-		<%
-			} else if("3".equals(vo.getTranCode().trim())){
-		%>
-			배송완료
-		<%
-			} else {
-		%>
-			판매중
-		<%
-			}
-		%>
-		상태입니다.
+		
+		<% String state = ""; %>
+		<% if("1".equals(vo.getTranCode().trim())) { 
+			state = "구매 완료 상태";
+		} else if("2".equals(vo.getTranCode().trim())) {
+			state = "배송 중";
+		} else if("3".equals(vo.getTranCode().trim())){
+			state = "배송 완료 상태";
+		} else {
+			state = "판매 중";
+		} %>
+		
+		현재 <%= state %>입니다.
 		</td>
 		<td></td>
 		<td align="left">

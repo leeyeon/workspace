@@ -3,7 +3,7 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Product product = (Product)request.getAttribute("productVO");
+	Product product = (Product)request.getAttribute("product");
 %>
 
 <html>
@@ -81,7 +81,7 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			상품명 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
+			상품명 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
@@ -92,7 +92,7 @@ function resetData(){
 						<input type="text" name="prodName" class="ct_input_g"
 									style="width: 100px; height: 19px" maxLength="20">
 						<% } else {%>
-							<%= product.getProdName() %>
+							${ product.getProdName() }
 						<% } %>
 					</td>
 				</tr>
@@ -104,7 +104,7 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			상품상세정보 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			상품상세정보 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
@@ -112,7 +112,7 @@ function resetData(){
 			<input type="text" name="prodDetail" class="ct_input_g" 
 						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
 			<% } else { %>
-				<%= product.getProdDetail() %>
+				${ product.getProdDetail() }
 			<% } %>
 		</td>
 	</tr>
@@ -131,7 +131,7 @@ function resetData(){
 				&nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
 										onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)"/>
 			<% } else { %>
-				<%= product.getManuDate() %>
+				${ product.getManuDate() }
 			<% } %>
 		</td>
 	</tr>
@@ -148,7 +148,7 @@ function resetData(){
 			<input type="text" name="price" 	class="ct_input_g" 
 						style="width: 100px; height: 19px" maxLength="10">
 			<% } else { %>			
-				<%= product.getPrice() %>
+				${ product.getPrice() }
 			<% } %>
 			&nbsp;원
 		</td>
@@ -164,7 +164,7 @@ function resetData(){
 			<input		type="text" name="fileName" class="ct_input_g" 
 							style="width: 200px; height: 19px" maxLength="13"/>
 			<% } else { %>
-				<%= product.getFileName() %>
+				${ product.getFileName() }
 			<% } %>
 		</td>
 	</tr>
@@ -200,7 +200,7 @@ function resetData(){
 					<% if(product == null) { %>
 						<a href="javascript:resetData();">취소</a>
 					<% } else { %>
-						<a href="../product/addProductView.jsp;">추가등록</a>
+						<a href="/addProductView.jsp;">추가등록</a>
 					<% } %>
 				</td>
 				<td width="14" height="23">

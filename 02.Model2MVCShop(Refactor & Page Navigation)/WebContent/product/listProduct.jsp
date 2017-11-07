@@ -13,14 +13,10 @@
 	Search search = (Search)request.getAttribute("search");
 	User user = (User)session.getAttribute("user");
 	
-	String menu = (String)request.getAttribute("menu");
+	String menu = (String)request.getParameter("menu");
 
 	/*
-	if("search".equals(menu)) {
-		out.println("User 리스트: "+ menu);
-	} else {
-		out.println("Manage 리스트: "+ menu);
-	}
+	out.println("리스트: "+ menu);
 	*/
 	
 	//==> null 을 ""(nullString)으로 변경
@@ -160,7 +156,7 @@ function fncGetProductList(currentPage) {
 			<%  } %>
 			
 			<% if(("1".equals(vo.getProTranCode().trim())) && ("manage".equals(menu))) { %>
-					<a href="/updateTranCodeByProd.do?prodNo=<%=vo.getProdNo()%>&tranCode=2">배송하기</a>
+					<a href="/updateTranCodeByProd.do?prodNo=<%=vo.getProdNo()%>&tranCode=2"">배송하기</a>
 			<% }
 		   } else { %>
 			재고 없음

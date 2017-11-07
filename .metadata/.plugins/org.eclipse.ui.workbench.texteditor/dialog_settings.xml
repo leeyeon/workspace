@@ -2,12 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Integer" key="selection"/>
+		<item value="if" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="if"/>
+			<item value="c:if"/>
+			<item value="phone1"/>
+			<item value="menu"/>
+			<item value="currentPage"/>
+			<item value="null"/>
+			<item value="fnc"/>
 			<item value="Integer"/>
 			<item value="page"/>
 			<item value="hidden"/>
@@ -16,13 +23,6 @@
 			<item value="search"/>
 			<item value="ct_ttl01"/>
 			<item value=".do"/>
-			<item value="checkDu"/>
-			<item value="CheckDu"/>
-			<item value="result"/>
-			<item value="login"/>
-			<item value="resu"/>
-			<item value="popWin"/>
-			<item value="phone"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -31,7 +31,7 @@
 		<item value="288" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1106" key="DIALOG_X_ORIGIN"/>
-		<item value="404" key="DIALOG_Y_ORIGIN"/>
+		<item value="1240" key="DIALOG_X_ORIGIN"/>
+		<item value="162" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

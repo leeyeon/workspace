@@ -32,10 +32,10 @@ public class ListProductAction extends Action {
 		String pageUnit = getServletContext().getInitParameter("pageSize");
 		searchVO.setPageUnit(Integer.parseInt(pageUnit));
 		
-		int tempPage = 4;
-		if(request.getParameter("tempPage") != null) {
-			tempPage = Integer.parseInt(request.getParameter("tempPage")) + 3;
-		}
+//		int tempPage = 4;
+//		if(request.getParameter("tempPage") != null) {
+//			tempPage = Integer.parseInt(request.getParameter("tempPage")) + 3;
+//		}
 		
 		ProductService service = new ProductServiceImpl();
 		HashMap<String, Object> map = service.getProductList(searchVO);
@@ -44,7 +44,7 @@ public class ListProductAction extends Action {
 		
 		request.setAttribute("map", map);
 		request.setAttribute("searchVO", searchVO);
-		request.setAttribute("tempPage", tempPage);
+		//request.setAttribute("tempPage", tempPage);
 		
 		String menu = request.getParameter("menu");
 		//System.out.println("/ListProduct.do? menu : "+menu);
