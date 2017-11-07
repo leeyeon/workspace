@@ -18,9 +18,9 @@ function fncGetList(currentPage) {
    	document.detailForm.submit();		
 }
 
-function fncGetPriceList(currentPage) {
+function fncSetPriceList(priceOrderbyCode,currentPage) {
+	document.getElementById("priceOrderbyCode").value = priceOrderbyCode;
 	document.getElementById("currentPage").value = currentPage;
-	document.getElementById("searchCondition").value = '11';
    	document.detailForm.submit();
 }
 -->
@@ -65,7 +65,6 @@ function fncGetPriceList(currentPage) {
 	<tr>
 		<td align="right">
 			<select name="searchCondition" class="ct_input_g" style="width:80px">
-				//<input type="hidden" id="currentPage" name="currentPage" value=""/>
 				<!-- <option value="0" ${(!empty search && search.searchCondition eq '0')? "selected" : ""}>상품번호</option>  -->		
 				<option value="1" ${(!empty search && search.searchCondition eq '1')? "selected" : ""}>상품명</option>
 				<option value="2" ${(!empty search && search.searchCondition eq '2')? "selected" : ""}>상품가격</option>
@@ -100,14 +99,23 @@ function fncGetPriceList(currentPage) {
 	<tr>
 		<td class="ct_list_b" width="50">No</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="300">상품명
-			
-		</td>
+		<td class="ct_list_b" width="300">상품명</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b" width="50">재고</td>
 		<td class="ct_line02"></td>
+		
 		<td class="ct_list_b" width="200">가격
-			<a href="javascript:fncGetPriceList('${resultPage.currentPage}');">★</a>
+			<c:choose>
+				<c:when test="${search.searchOrderbyPrice eq 0}">
+					<a href="javascript:fncSetPriceList('1',${resultPage.currentPage});">▲</a>
+				</c:when>
+				<c:when test="${search.searchOrderbyPrice eq 1}">
+					<a href="javascript:fncSetPriceList('0',${resultPage.currentPage});">▼</a>
+				</c:when>
+				<c:otherwise>
+					<a href="javascript:fncSetPriceList('1',${resultPage.currentPage});">▲</a>
+				</c:otherwise>
+			</c:choose>
 		</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">현재상태</td>	
@@ -171,6 +179,7 @@ function fncGetPriceList(currentPage) {
 	<tr>
 		<td align="center">
 			<input type="hidden" id="currentPage" name="currentPage" value=""/>
+			<input type="hidden" id="priceOrderbyCode" name="priceOrderbyCode" value=""/>
 			
 			<jsp:include page="../common/pageNavigator.jsp"/>
     	</td>

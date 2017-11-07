@@ -115,6 +115,19 @@ function resetData(){
 			</c:if>
 		</td>
 	</tr>
+		<tr>
+		<td width="104" class="ct_write">
+			상품개수 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<select name="prodCount" class="ct_input_g" style="width:80px">
+				<option value="1" ${(!empty product && search.searchCondition eq '1')? "selected" : ""}>1개</option>
+				<option value="2" ${(!empty product && search.searchCondition eq '2')? "selected" : ""}>2개</option>
+				<option value="3" ${(!empty product && search.searchCondition eq '2')? "selected" : ""}>3개</option>
+			</select>
+		</td>
+	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>

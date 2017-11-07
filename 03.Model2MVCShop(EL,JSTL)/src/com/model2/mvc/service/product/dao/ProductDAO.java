@@ -63,33 +63,28 @@ public class ProductDAO {
 					+" PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
 					+" FROM product, transaction"
 					+" WHERE product.prod_no = transaction.prod_no(+)";
-		
-		String searchCond = search.getSearchCondition().substring(0,1);
-		String orderbyCond = "";
-		
-		if(search.getSearchCondition().length() == 2) {
-			orderbyCond = search.getSearchCondition().substring(1,2);
-		}
-		
-		System.out.println("getSearchCondition :: "+search.getSearchCondition()+" && searchCond :: " + searchCond + " && orderbyCond :: "+orderbyCond);
-		
+
 		if (search.getSearchCondition() != null) {
-			if (searchCond.equals("0") && !search.getSearchKeyword().equals("")) {
+			if (search.getSearchCondition().equals("0") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PRODUCT.PROD_NO LIKE '" + search.getSearchKeyword()
 						+ "%'";
-			} else if (searchCond.equals("1") && !search.getSearchKeyword().equals("")) {
+			} else if (search.getSearchCondition().equals("1") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PROD_NAME LIKE '" + search.getSearchKeyword()
 						+ "%'";
-			} else if (searchCond.equals("2") && !search.getSearchKeyword().equals("")) {
+			} else if (search.getSearchCondition().equals("2") && !search.getSearchKeyword().equals("")) {
 				sql += " AND PRICE >=" + search.getSearchKeyword();
 			}
 		}
 		
+		String code = search.getSearchOrderbyPrice();
+		
 		// ³ôÀº ¼ø
-		if(orderbyCond.equals("0")) {
-			sql +=" ORDER BY PRICE DESC";
-		} else if(orderbyCond.equals("1")) {
-			sql +=" ORDER BY PRICE ASC";
+		if(code != null) {
+			if(code.equals("0")) {
+				sql +=" ORDER BY PRICE DESC";
+			} else if(code.equals("1")) {
+				sql +=" ORDER BY PRICE ASC";
+			} 
 		} else {
 			sql +=" ORDER BY PRODUCT.PROD_NO";
 		}

@@ -25,21 +25,14 @@ public class ListProductAction extends Action {
 		Search search = new Search();
 		
 		int currentPage = 1;
-		String condition = "1";
-		String keyword = "";
 		if(request.getParameter("currentPage") != null){
 			currentPage=Integer.parseInt(request.getParameter("currentPage"));
 		}
-		if(request.getParameter("searchCondition") != null) {
-			condition = request.getParameter("searchCondition");
-		}		
-		if(request.getParameter("searchKeyword") != null) {
-			keyword = request.getParameter("searchKeyword");
-		}
 		
 		search.setCurrentPage(currentPage);
-		search.setSearchCondition(condition);
-		search.setSearchKeyword(keyword);
+		search.setSearchCondition(request.getParameter("searchCondition"));
+		search.setSearchKeyword(request.getParameter("searchKeyword"));
+		search.setSearchOrderbyPrice(request.getParameter("priceOrderbyCode"));
 		
 		// web.xml  meta-data 로 부터 상수 추출 
 		int pageSize = Integer.parseInt( getServletContext().getInitParameter("pageSize"));
