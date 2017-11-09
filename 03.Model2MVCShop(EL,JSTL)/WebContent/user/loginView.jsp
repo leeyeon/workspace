@@ -78,8 +78,9 @@
                 	<img src="/images/text_id.gif" width="100" height="30"/>
                 </td>
                 <td height="30">
-                  <input 	type="text" name="userId"  class="ct_input_g" 
-                  				style="width:180px; height:19px"  maxLength='50'/>          
+                  <input type="text" name="userId"  class="ct_input_g" 
+                  				style="width:180px; height:19px"  maxLength='50'
+                  				onKeydown="javascript:if(event.keyCode == 13) fncLogin();"/>
           		</td>
                 <td width="20" height="30">&nbsp;</td>
               </tr>
@@ -89,8 +90,9 @@
                 	<img src="/images/text_pas.gif" width="100" height="30"/>
                 </td>
                 <td height="30">                    
-                    <input 	type="password" name="password" class="ct_input_g" 
-                    				style="width:180px; height:19px"  maxLength="50" />
+                    <input type="password" name="password" class="ct_input_g" 
+                   				style="width:180px; height:19px"  maxLength="50" 
+                   				onKeydown="javascript:if(event.keyCode == 13) fncLogin();"/>
                 </td>
                 <td width="20" height="30">&nbsp;</td>
               </tr>

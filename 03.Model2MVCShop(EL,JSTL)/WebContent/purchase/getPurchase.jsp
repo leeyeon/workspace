@@ -2,9 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%--
-	Purchase purchase = (Purchase)request.getAttribute("purchase");
---%>
 
 <html>
 <head>
@@ -72,7 +69,7 @@
 		<td width="104" class="ct_write">구매방법</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-		${(purchase.paymentOption eq 1)? "현금구매" : "신용구매"}
+		${(purchase.paymentOption eq "1")? "현금구매" : "신용구매"}
 		</td>
 	</tr>
 	<tr>

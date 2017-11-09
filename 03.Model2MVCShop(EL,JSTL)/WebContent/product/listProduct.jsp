@@ -100,11 +100,8 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 		<td class="ct_list_b" width="50">No</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b" width="300">상품명</td>
-		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="50">재고</td>
-		<td class="ct_line02"></td>
-		
-		<td class="ct_list_b" width="200">가격
+		<td class="ct_line02"></td>		
+		<td class="ct_list_b" width="160">가격
 			<c:choose>
 				<c:when test="${search.searchOrderbyPrice eq 0}">
 					<a href="javascript:fncSetPriceList('1',${resultPage.currentPage});">▲</a>
@@ -117,6 +114,8 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 				</c:otherwise>
 			</c:choose>
 		</td>
+		<td class="ct_line02"></td>
+		<td class="ct_list_b" width="70">재고</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">현재상태</td>	
 	</tr>
@@ -139,9 +138,9 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 				</c:choose>
 			</td>
 			<td></td>
-			<td align="left">개수</td>
-			<td></td>
 			<td align="left"><fmt:formatNumber value="${product.price}" pattern="#,###" /></td>
+			<td></td>
+			<td align="center">개수</td>
 			<td></td>
 			<td align="left">
 			

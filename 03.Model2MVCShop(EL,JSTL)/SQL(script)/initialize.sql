@@ -36,6 +36,14 @@ CREATE TABLE product (
 	PRIMARY KEY(prod_no)
 );
 
+alter table product add(amount NUMBER);
+
+UPDATE PRODUCT
+SET AMOUNT = (
+SELECT DISTINCT NVL2(TRAN_STATUS_CODE, 1,0)
+FROM TRANSACTION
+WHERE  PRODUCT.PROD_NO = TRANSACTION.PROD_NO(+));
+
 CREATE TABLE transaction ( 
 	tran_no 					NUMBER 			NOT NULL,
 	prod_no 					NUMBER(16)		NOT NULL REFERENCES product(prod_no),

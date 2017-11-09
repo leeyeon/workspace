@@ -89,11 +89,11 @@ public class ProductDAO {
 			sql +=" ORDER BY PRODUCT.PROD_NO";
 		}
 		
-		System.out.println("ProductDAO::Original SQL :: " + sql);
+		//System.out.println("ProductDAO::Original SQL :: " + sql);
 		
 		//==> TotalCount GET
 		int totalCount = this.getTotalCount(sql);
-		System.out.println("ProductDAO :: totalCount  :: " + totalCount);
+		//System.out.println("ProductDAO :: totalCount  :: " + totalCount);
 		
 		//==> CurrentPage 게시물만 받도록 Query 다시구성
 		sql = makeCurrentPageSql(sql, search);

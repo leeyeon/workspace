@@ -1,18 +1,7 @@
-<%@page import="com.model2.mvc.common.util.CommonUtil"%>
-<%@page import="com.model2.mvc.common.Page"%>
-<%@page import="com.model2.mvc.service.domain.Purchase"%>
-<%@page import="java.util.List"%>
-<%@page import="com.model2.mvc.common.Search"%>
-<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-	List<Purchase> list = (List<Purchase>)request.getAttribute("list");
-	Page resultPage = (Page)request.getAttribute("resultPage");
-	Search search = (Search)request.getAttribute("search");
---%>
 <html>
 <head>
 <title>구매 목록조회</title>

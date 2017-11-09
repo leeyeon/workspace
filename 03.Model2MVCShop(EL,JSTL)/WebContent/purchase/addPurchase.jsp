@@ -1,12 +1,7 @@
-<%@page import="com.model2.mvc.service.domain.Product"%>
-<%@page import="com.model2.mvc.service.domain.User"%>
-<%@page import="com.model2.mvc.service.domain.Purchase"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%--
-	Purchase purchase = (Purchase)request.getAttribute("purchase");
---%>
+
 <html>
 <head>
 <title>구매 확인</title>

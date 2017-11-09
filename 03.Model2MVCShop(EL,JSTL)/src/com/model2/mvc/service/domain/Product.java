@@ -14,6 +14,7 @@ public class Product {
 	private int prodNo;
 	private Date regDate;
 	private String proTranCode;
+	private int amount;
 	
 	public Product(){
 	}
@@ -67,11 +68,19 @@ public class Product {
 		this.regDate = regDate;
 	}
 
+	public int getProdCount() {
+		return amount;
+	}
+
+	public void setProdCount(int prodCount) {
+		this.amount = prodCount;
+	}
+
 	@Override
 	public String toString() {
-		return "Product [prodName=" + prodName +  ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
-				+ prodDetail + ", prodNo=" + prodNo + ", fileName=" + fileName + ", regDate=" + regDate
-				+ ", proTranCode=" + proTranCode + "]";
+		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
+				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate
+				+ ", proTranCode=" + proTranCode + ", prodCount=" + amount + "]";
 	}
 
 
