@@ -10,7 +10,7 @@
 	</c:if>
 	
 	<c:forEach var="i"  begin="${resultPage.beginUnitPage}" end="${resultPage.endUnitPage}" step="1">
-		<a href="javascript:fncGetList('${ i }');">${ i }</a>
+		<a href="javascript:fncGetList('${search.searchOrderbyPrice}','${ i }');" id="pageTemp">${ i }</a>
 	</c:forEach>
 	
 	<c:if test="${ resultPage.endUnitPage >= resultPage.maxPage }">
@@ -19,3 +19,19 @@
 	<c:if test="${ resultPage.endUnitPage < resultPage.maxPage }">
 			<a href="javascript:fncGetList('${resultPage.endUnitPage+1}')">이후 ▶</a>
 	</c:if>
+	
+
+<script type="text/javascript">
+<!--
+// 검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용 
+function fncGetList(priceOrderbyCode, currentPage) {
+	document.getElementById("priceOrderbyCode").value = priceOrderbyCode;
+	document.getElementById("currentPage").value = currentPage;
+   	document.detailForm.submit();		
+}
+
+window.onload = function change() {
+    document.getElementById("pageTemp").style.fontWeight = "bold";
+}
+//-->
+</script>

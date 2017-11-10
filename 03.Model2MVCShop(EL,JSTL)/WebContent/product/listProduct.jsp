@@ -10,21 +10,7 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<script type="text/javascript">
-<!--
-// 검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용  
-function fncGetList(currentPage) {
-	document.getElementById("currentPage").value = currentPage;
-   	document.detailForm.submit();		
-}
 
-function fncSetPriceList(priceOrderbyCode,currentPage) {
-	document.getElementById("priceOrderbyCode").value = priceOrderbyCode;
-	document.getElementById("currentPage").value = currentPage;
-   	document.detailForm.submit();
-}
--->
-</script>
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -43,11 +29,11 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 				<tr>
 					<td width="93%" class="ct_ttl01">
 					<c:choose>
-						<c:when test="${!empty menu && menu eq search}">
-						 	상품 목록조회
+						<c:when test="${!empty menu && menu eq 'search'}">
+						 	상품 목록
 						</c:when>
 						<c:otherwise>
-							상품 관리
+							상품 정보 및 배송 관리
 						</c:otherwise>
 					</c:choose>
 					</td>
@@ -97,25 +83,42 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 		전체 ${resultPage.totalCount} 건수, 현재 ${resultPage.currentPage} 페이지</td>
 	</tr>
 	<tr>
-		<td class="ct_list_b" width="50">No</td>
+		<td colspan="11" align="right">
+		<a href="">상품명순</a>&nbsp;&nbsp;
+		<a href="">재고순</a>&nbsp;&nbsp;
+		<a href="">상품등록일순</a>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td colspan="11" bgcolor="808285" height="1"></td>
+	</tr>
+	<tr>
+		<td class="ct_list_b" width="70">No</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="300">상품명</td>
+		
+		<c:if test="${!empty user && user.role.trim() eq 'admin'}">
+		<td class="ct_list_b" width="120">상품번호</td>
+		<td class="ct_line02"></td>
+		</c:if>
+		
+		<td class="ct_list_b" width="450">상품정보</td>
 		<td class="ct_line02"></td>		
-		<td class="ct_list_b" width="160">가격
+		<td class="ct_list_b" width="120">가격
 			<c:choose>
-				<c:when test="${search.searchOrderbyPrice eq 0}">
-					<a href="javascript:fncSetPriceList('1',${resultPage.currentPage});">▲</a>
+				<c:when test="${search.searchOrderbyPrice eq '0'}">
+					<a href="javascript:fncGetList('1','1');">▼</a>
 				</c:when>
-				<c:when test="${search.searchOrderbyPrice eq 1}">
-					<a href="javascript:fncSetPriceList('0',${resultPage.currentPage});">▼</a>
+				<c:when test="${search.searchOrderbyPrice eq '1'}">
+					<a href="javascript:fncGetList('0','1');">▲</a>
 				</c:when>
 				<c:otherwise>
-					<a href="javascript:fncSetPriceList('1',${resultPage.currentPage});">▲</a>
+					<a href="javascript:fncGetList('1',${resultPage.currentPage});">◇</a>
 				</c:otherwise>
 			</c:choose>
 		</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="70">재고</td>
+		<td class="ct_list_b" width="150">상품등록일</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">현재상태</td>	
 	</tr>
@@ -127,20 +130,31 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 		<tr class="ct_list_pop">
 			<td align="center">${list.indexOf(product) + 1}</td>
 			<td></td>
+			<c:if test="${!empty user && user.role.trim() eq 'admin'}">
+			<td align="center">${product.prodNo}</td>
+			<td></td>
+			</c:if>
 			<td align="left">
 				<c:choose>
 					<c:when test="${empty product.proTranCode || (!empty user && user.role eq 'admin' )}">
-						<a href="/getProduct.do?prodNo=${product.prodNo}&menu=${menu}">${product.prodName}</a>
+						<a href="/getProduct.do?prodNo=${product.prodNo}&menu=${menu}">
+						<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"
+						height="90px" width="100px" border="0" align="absmiddle"
+						style="padding: 5px"/>&nbsp;
+						${product.prodName}</a>
 					</c:when>
 					<c:otherwise>
+						<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"
+						height="90px" width="100px" border="0" align="absmiddle"
+						style="padding: 5px"/>&nbsp;
 						${product.prodName}
 					</c:otherwise>
 				</c:choose>
 			</td>
 			<td></td>
-			<td align="left"><fmt:formatNumber value="${product.price}" pattern="#,###" /></td>
+			<td align="right"><fmt:formatNumber value="${product.price}" pattern="#,###"/> 원</td>
 			<td></td>
-			<td align="center">개수</td>
+			<td align="center">${product.regDate}</td>
 			<td></td>
 			<td align="left">
 			
@@ -157,7 +171,7 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 					
 					</c:choose>
 					<c:if test="${product.proTranCode.trim() eq '1' && menu eq 'manage' }">
-						<a href="/updateTranCodeByProd.do?prodNo=${product.prodNo}&tranCode=2"">배송하기</a>
+						<a href="/updateTranCodeByProd.do?prodNo=${product.prodNo}&tranCode=2">배송하기</a>
 					</c:if>
 				</c:when>
 				<c:otherwise>
@@ -166,7 +180,7 @@ function fncSetPriceList(priceOrderbyCode,currentPage) {
 			</c:choose>
 			
 			</c:if>
-			</td>	
+			</td>
 		</tr>
 		<tr>
 			<td colspan="11" bgcolor="D6D7D6" height="1"></td>

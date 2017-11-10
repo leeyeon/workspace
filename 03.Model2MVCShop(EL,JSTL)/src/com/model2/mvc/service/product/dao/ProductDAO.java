@@ -79,7 +79,7 @@ public class ProductDAO {
 		String code = search.getSearchOrderbyPrice();
 		
 		// ³ôÀº ¼ø
-		if(code != null) {
+		if((code != null) || ("".equals(code))) {
 			if(code.equals("0")) {
 				sql +=" ORDER BY PRICE DESC";
 			} else if(code.equals("1")) {

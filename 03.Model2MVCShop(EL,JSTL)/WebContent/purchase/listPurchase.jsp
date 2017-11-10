@@ -7,15 +7,7 @@
 <title>구매 목록조회</title>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
-<script type="text/javascript">
-<!--
-// 검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용  
-function fncGetList(currentPage) {
-	document.getElementById("currentPage").value = currentPage;
-   	document.detailForm.submit();		
-}
--->
-</script>
+
 </head>
 
 <body bgcolor="#ffffff" text="#000000">
@@ -46,9 +38,9 @@ function fncGetList(currentPage) {
 	<tr>
 		<td class="ct_list_b" width="100">No</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">회원ID</td>
+		<td class="ct_list_b" width="150">상품명</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">회원명</td>
+		<td class="ct_list_b" width="120">구매자 이름</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">전화번호</td>
 		<td class="ct_line02"></td>
@@ -66,14 +58,11 @@ function fncGetList(currentPage) {
 			${list.indexOf(purchase) + 1}</a>
 		</td>
 		<td></td>
-		<td align="left">
-			<a href="/getUser.do?userId=${purchase.buyer.userId}">
-			${purchase.buyer.userId}</a>
-		</td>
+		<td align="left">${purchase.purchaseProd.prodName}</td>
 		<td></td>
-		<td align="left">${purchase.receiverName}</td>
+		<td align="left">${purchase.receiverName ne 'null' ? purchase.receiverName : ''}</td>
 		<td></td>
-		<td align="left">${purchase.receiverPhone}</td>
+		<td align="left">${purchase.receiverPhone ne 'null' ? purchase.receiverPhone : ''}</td>
 		<td></td>
 		<td align="left">
 		

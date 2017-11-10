@@ -9,6 +9,9 @@ public class Search {
 	private String searchKeyword;
 	private int pageSize;
 	private String searchOrderbyPrice;
+	private String searchOrderbyName;
+	private String searchOrderbyRegDate;
+	private String searchOrderbyAmount;
 	
 	///Constructor
 	public Search() {
@@ -48,6 +51,30 @@ public class Search {
 
 	public void setSearchOrderbyPrice(String searchOrderbyPrice) {
 		this.searchOrderbyPrice = searchOrderbyPrice;
+	}
+
+	public String getSearchOrderbyName() {
+		return searchOrderbyName;
+	}
+
+	public void setSearchOrderbyName(String searchOrderbyName) {
+		this.searchOrderbyName = searchOrderbyName;
+	}
+
+	public String getSearchOrderbyReaDate() {
+		return searchOrderbyRegDate;
+	}
+
+	public void setSearchOrderbyReaDate(String searchOrderbyReaDate) {
+		this.searchOrderbyRegDate = searchOrderbyReaDate;
+	}
+
+	public String getSearchOrderbyAmount() {
+		return searchOrderbyAmount;
+	}
+
+	public void setSearchOrderbyAmount(String searchOrderbyAmount) {
+		this.searchOrderbyAmount = searchOrderbyAmount;
 	}
 
 	@Override

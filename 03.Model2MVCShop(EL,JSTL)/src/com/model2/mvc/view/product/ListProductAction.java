@@ -32,7 +32,11 @@ public class ListProductAction extends Action {
 		search.setCurrentPage(currentPage);
 		search.setSearchCondition(request.getParameter("searchCondition"));
 		search.setSearchKeyword(request.getParameter("searchKeyword"));
-		search.setSearchOrderbyPrice(request.getParameter("priceOrderbyCode"));
+		
+		String priceOrderbyCode = null;
+		if(request.getParameter("priceOrderbyCode") != null){
+			search.setSearchOrderbyPrice(request.getParameter("priceOrderbyCode"));
+		}
 		
 		// web.xml  meta-data 로 부터 상수 추출 
 		int pageSize = Integer.parseInt( getServletContext().getInitParameter("pageSize"));

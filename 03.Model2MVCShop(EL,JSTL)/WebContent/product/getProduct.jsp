@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -68,7 +69,7 @@
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<img src = "/images/uploadFiles/>${product.fileName}" onerror="this.src='/images/no_image.jpg'"/>
+			<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"/>
 		</td>
 	</tr>
 	<tr>
@@ -87,7 +88,15 @@
 	<tr>
 		<td width="104" class="ct_write">제조일자</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${product.manuDate}</td>
+		<td class="ct_write01">
+		<c:if test="${product.manuDate.contains('/')}">
+			<fmt:parseDate value="${product.manuDate}" var="dateFmt" pattern="yy/mm/dd"/>
+		</c:if>
+		<c:if test="${!product.manuDate.contains('/')}">
+			<fmt:parseDate value="${product.manuDate}" var="dateFmt" pattern="yyyymmdd"/>
+		</c:if>
+		<fmt:formatDate value="${dateFmt}" pattern="yyyy-mm-dd"/></td>
+		
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -95,7 +104,7 @@
 	<tr>
 		<td width="104" class="ct_write">가격</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${product.price}</td>
+		<td class="ct_write01"><fmt:formatNumber value="${product.price}" pattern="#,###" /> 원</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -130,7 +139,7 @@
 					</td>
 				</c:when>
 				<c:otherwise>
-					<c:if test="${!empty user}">
+					<c:if test="${!empty user && user eq 'user'}">
 						<td width="17" height="23">
 							<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 						</td>

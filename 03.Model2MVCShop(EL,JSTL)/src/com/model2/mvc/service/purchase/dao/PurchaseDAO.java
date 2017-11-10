@@ -13,8 +13,8 @@ import com.model2.mvc.common.util.DBUtil;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.domain.Purchase;
 import com.model2.mvc.service.domain.User;
-import com.model2.mvc.service.user.UserService;
-import com.model2.mvc.service.user.impl.UserServiceImpl;
+import com.model2.mvc.service.product.ProductService;
+import com.model2.mvc.service.product.impl.ProductServiceImpl;
 
 public class PurchaseDAO {
 
@@ -100,8 +100,8 @@ public class PurchaseDAO {
 			product.setRegDate(rs.getDate("REG_DATE"));
 			purchase.setPurchaseProd(product);
 			// setBuyer
-			User user = new User();
-			purchase.setBuyer(user);
+			//User user = new User();
+			//purchase.setBuyer(user);
 		}
 		
 		System.out.println(purchase);
@@ -115,9 +115,9 @@ public class PurchaseDAO {
 		
 		Map<String,Object> map = new HashMap<String,Object>();
 		Connection con = DBUtil.getConnection();
-		String sql = "SELECT TRAN_NO, RECEIVER_NAME, RECEIVER_PHONE, TRAN_STATUS_CODE"
+		String sql = "SELECT TRAN_NO, PROD_NO, RECEIVER_NAME, RECEIVER_PHONE, TRAN_STATUS_CODE"
 					+" FROM transaction"
-					+" WHERE BUYER_ID = "+ "\'"+buyerId+"\'"
+					+" WHERE BUYER_ID = \'"+buyerId+"\'"
 					+" ORDER BY TRAN_NO";
 		
 		//==> TotalCount GET
@@ -134,14 +134,17 @@ public class PurchaseDAO {
 		while(rs.next()) {
 			Purchase purchase = new Purchase();
 			
-			UserService service = new UserServiceImpl();
-			User buyer = service.getUser(buyerId);
+			User buyer = new User();
+			new User().setUserId(buyerId);
 			
 			purchase.setBuyer(buyer);
 			purchase.setTranNo(rs.getInt("TRAN_NO"));
 			purchase.setReceiverName(rs.getString("RECEIVER_NAME"));
 			purchase.setReceiverPhone(rs.getString("RECEIVER_PHONE"));
 			purchase.setTranCode(rs.getString("TRAN_STATUS_CODE"));
+			
+			ProductService pService = new ProductServiceImpl();
+			purchase.setPurchaseProd(pService.getProduct(rs.getInt("PROD_NO")));
 			
 			list.add(purchase);
 
@@ -159,59 +162,7 @@ public class PurchaseDAO {
 	
 	public Map<String,Object> getSaleList(Search search) throws Exception {
 		
-		Map<String,Object> map = new HashMap<String,Object>();
-		Connection con = DBUtil.getConnection();
-		String sql = "SELECT TRAN_STATUS_CODE, PRODUCT.PROD_NO AS PROD_NO, PROD_NAME, "
-					+" PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
-					+" FROM product, transaction"
-					+" WHERE product.prod_no = transaction.prod_no(+)";
-		
-		if (search.getSearchCondition() != null) {
-			if (search.getSearchCondition().equals("0") && !search.getSearchKeyword().equals("")) {
-				sql += " AND PRODUCT.PROD_NO LIKE '" + search.getSearchKeyword()
-						+ "%'";
-			} else if (search.getSearchCondition().equals("1") && !search.getSearchKeyword().equals("")) {
-				sql += " AND PROD_NAME LIKE '" + search.getSearchKeyword()
-						+ "%'";
-			} else if (search.getSearchCondition().equals("2") && !search.getSearchKeyword().equals("")) {
-				sql += " AND PRICE >=" + search.getSearchKeyword();
-			}
-		}
-					
-		sql +=" ORDER BY PRODUCT.PROD_NO";
-		
-		//==> TotalCount GET
-		int totalCount = this.getTotalCount(sql);
-		
-		//==> CurrentPage 게시물만 받도록 Query 다시구성
-		sql = makeCurrentPageSql(sql, search);
-		PreparedStatement pstmt = con.prepareStatement(sql);
-		ResultSet rs = pstmt.executeQuery();
-
-		ArrayList<Product> list = new ArrayList<Product>();
-		
-		while(rs.next()) {
-			Product productVO = new Product();
-			productVO.setProdNo(rs.getInt("PROD_NO"));
-			productVO.setProdName(rs.getString("PROD_NAME"));
-			productVO.setProdDetail(rs.getString("PROD_DETAIL"));
-			productVO.setManuDate(rs.getString("MANUFACTURE_DAY"));
-			productVO.setPrice(rs.getInt("PRICE"));
-			productVO.setFileName(rs.getString("IMAGE_FILE"));
-			productVO.setRegDate(rs.getDate("REG_DATE"));
-			productVO.setProTranCode(rs.getString("TRAN_STATUS_CODE"));
-			
-			list.add(productVO);
-		}
-		
-		map.put("totalCount", new Integer(totalCount));
-		map.put("list", list);
-		
-		rs.close();
-		pstmt.close();
-		con.close();
-		
-		return map;
+		return null;
 	}
 	
 	public void insertPurchase(Purchase purchase) throws Exception {
@@ -270,7 +221,6 @@ public class PurchaseDAO {
 		Connection con = DBUtil.getConnection();
 		
 		String tranCode = purchase.getTranCode().trim();
-		String name = null;
 		int value = 0;
 		
 		String sql = "UPDATE TRANSACTION SET TRAN_STATUS_CODE = ?";
