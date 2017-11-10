@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.product.dao.ProductDAO"/>
 <fullyQualifiedTypeName name="oracle.jrockit.jfr.openmbean.ProducerDescriptorType"/>
-<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
 <fullyQualifiedTypeName name="com.model2.mvc.framework.Action"/>
 <fullyQualifiedTypeName name="com.model2.mvc.common.SearchVO"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.purchase.dao.PurchaseDao"/>
@@ -19,17 +18,25 @@
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.purchase.vo.PurchaseVO"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.product.vo.ProductVO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="com.model2.mvc.common.Search"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="com.model2.mvc.service.domain.Product"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.purchase.PurchaseService"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.purchase.impl.PurchaseServiceImpl"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.domain.Purchase"/>
 <fullyQualifiedTypeName name="com.model2.mvc.service.domain.User"/>
-<fullyQualifiedTypeName name="com.model2.mvc.common.util.CommonUtil"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.model2.mvc.service.domain.Product"/>
+<fullyQualifiedTypeName name="com.model2.mvc.common.util.CommonUtil"/>
+<fullyQualifiedTypeName name="spring.service.dice.play.Player02"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.BeanFactory"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.xml.XmlBeanFactory"/>
+<fullyQualifiedTypeName name="org.springframework.core.io.FileSystemResource"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="spring.service.domain.User"/>
+<fullyQualifiedTypeName name="javax.servlet.http.Cookie"/>
 </qualifiedTypeNameHistroy>

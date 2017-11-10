@@ -25,22 +25,32 @@
 4. abstraction (추상화)
 
  => 구체적인 객체의 특성들의 공통된 특성을 모아서 일반적인 특성으로 정의내리는 과정! system modeling~
+interface...도 포함이긴 함
+공유할 것들 공유하고 오버라이딩시킬것도 시키고
 
 5. Generalization (일반화) / Inheritance (상속) - extends
 
  => 추상화시킨 것의 결과물이 일반화된 것... (model)
-	이 것들에게 살을 덧붙힐 수 있는데, 일반화된 것들을 상속받으면 가능함.
+	이 것들에게 살을 덧붙힐 수 있는데, 일반화된 것들을 상속받으면 가능함
 
 6. Specialization (구체적/특수화)
 
  => 추상화된 객체들 각각의 특성을 더한것..
-
  Generalization 와 Specialization : is a 관계
+
+
+<abstract>
+   A ( Genralization ) 밑에 애들 extends A 함.
+  └ B  --( Dependancy )--> E
+  └ C                               │ ( has a )
+  └ D ( Speialization )        ┘
+( is a )
+
+
 
 7. Realization (실체화) : interface - implements
  
- 레알 마드리드~~~~
- => 인터페이스를 클래스로 정의하기
+=> 인터페이스를 클래스로 정의하기
 
 8. Association (연관)
 
@@ -994,6 +1004,55 @@ onChange="document.detailForm.phone2.focus();
 
 140. 형상관리(CM: Configuration Management)
  프로젝트를 할 때 생성된 소스코드를 CVS나  SVN. GIT과 같은 버전 관리 시스템을 사용하는 것
+141. SCM
+142. CVS
+143. progress bar
+
+144. git 용어 정리
+branch : mastar(defualt)
+chekout: branch 이동
+merge: 다른 brunch와 병합
+conflict: merge 할 때 소스  충돌
+repository: 소스 저장소
+commit: branch 작업 저장
+
+145. Bean Container : bean 실행과 관리
+
+146. Ioc Container
+                        Inversion of Controller
+Dependency Injection                    // Dependency Lookup ( 책임져야됨 -> 안씀 )
+onstructor Injection 과 setter Injection
+147. FQCN
+
+148. bean 규약
+
+149. POJO :: Plain Old Java Objet
+
+150. DI :: Dependency Injection ...
+   하위에는 Constructor Injection 과 setter Injection이 있음.
+
+151. Spring -> xml만 보기
+
+152. Beanfactory : lazily loading
+      ApplicationContext : pre loading
+
+153. pattern
+singleTon
+vo
+dao
+front controller
+factory
+
+154. 연동 : spring // mybatis 모듈 연결
+
+155. text 파일 => script 파일이라고 말해야댐
+
+156. binding ..:: ResultSet -> VO 변경
+
+
+
+
+
 
 
 

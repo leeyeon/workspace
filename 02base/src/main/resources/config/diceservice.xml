@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://www.springframework.org/schema/beans
+													  http://www.springframework.org/schema/beans/spring-beans.xsd">												 
+												 
+     <!-- ㅇ Hello instance 생성 서술적, 선언적 기술
+			ㅇ bean element 및 attribute 
+				- id : instance identifier 
+				- class : instance 생성 Bean (FQCN)     -->
+				
+	<bean id="diceA" class="spring.service.dice.impl.DiceAImpl"/>
+	<bean id="diceB" class="spring.service.dice.impl.DiceBImpl"/>
+	<bean id="diceC" class="spring.service.dice.impl.DiceCImpl"/>
+	
+	<bean id="player01" class="spring.service.dice.play.Player02">
+		<property name="dice" ref="diceA"/>
+	</bean>
+	
+	<bean id="player02" class="spring.service.dice.play.Player02">
+		<property name="dice" ref="diceB"/>
+	</bean>
+	
+	<bean id="player03" class="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceC"/>
+	</bean>
+	
+	<bean id="player04" class="spring.service.dice.play.Player02">
+		<constructor-arg ref="diceA"/>
+	</bean>
+
+</beans>

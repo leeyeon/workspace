@@ -5,6 +5,7 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\02base"/>
 			<item value="C:\Users\301-6\Downloads\java_study-master\java_study-master"/>
 			<item value="C:\workspace"/>
 			<item value="D:\z.utility\01.Model2MVCShop(stu)"/>
