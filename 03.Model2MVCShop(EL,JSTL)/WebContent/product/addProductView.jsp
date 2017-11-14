@@ -121,11 +121,13 @@ function resetData(){
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<select name="prodCount" class="ct_input_g" style="width:80px">
-				<option value="1" ${(!empty product && search.searchCondition eq '1')? "selected" : ""}>1개</option>
-				<option value="2" ${(!empty product && search.searchCondition eq '2')? "selected" : ""}>2개</option>
-				<option value="3" ${(!empty product && search.searchCondition eq '2')? "selected" : ""}>3개</option>
-			</select>
+			<c:if test="${empty product}">
+				<input type="text" name="amount" class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10" minLength="6"/> 개
+			</c:if>
+			<c:if test="${!empty product}">
+				${product.amount} 개
+			</c:if>
 		</td>
 	</tr>
 	<tr>

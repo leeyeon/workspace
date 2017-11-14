@@ -2,14 +2,15 @@
 DROP TABLE transaction;
 DROP TABLE product;
 DROP TABLE users;
+DROP TABLE inventory;
 
 DROP SEQUENCE seq_product_prod_no;
 DROP SEQUENCE seq_transaction_tran_no;
-
+DROP SEQUENCE seq_inventory_inven_no;
 
 CREATE SEQUENCE seq_product_prod_no		 	INCREMENT BY 1 START WITH 10000;
 CREATE SEQUENCE seq_transaction_tran_no	INCREMENT BY 1 START WITH 10000;
-
+CREATE SEQUENCE seq_inventory_inven_no INCREMENT BY 1 START WITH 10000;
 
 CREATE TABLE users ( 
 	user_id 			VARCHAR2(20)	NOT NULL,
@@ -32,11 +33,15 @@ CREATE TABLE product (
 	manufacture_day		VARCHAR2(8),
 	price 							NUMBER(10),
 	image_file 					VARCHAR2(100),
-	reg_date 					DATE,
+	reg_date 					DATE
 	PRIMARY KEY(prod_no)
 );
 
-alter table product add(amount NUMBER);
+//alter table product add(amount NUMBER);
+//ALTER TABLE product DROP COLUMN amount;
+
+alter table product add(beforeAmount NUMBER);
+alter table transaction add(amount NUMBER);
 
 UPDATE PRODUCT
 SET AMOUNT = (
@@ -59,6 +64,18 @@ CREATE TABLE transaction (
 	PRIMARY KEY(tran_no)
 );
 
+================================================================
+재고관리 테이블
+================================================================
+
+CREATE TABLE inventory ( 
+	inven_no  		NUMBER 		NOT NULL,
+	prod_no 		NUMBER(16) 	NOT NULL 	REFERENCES product(prod_no),
+	amount 		NUMBER 		NOT NULL,
+	PRIMARY KEY (inven_id)
+);
+
+================================================================
 
 INSERT 
 INTO users ( user_id, user_name, password, role, ssn, cell_phone, addr, email, reg_date ) 

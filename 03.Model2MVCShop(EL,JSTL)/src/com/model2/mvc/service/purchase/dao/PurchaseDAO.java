@@ -162,7 +162,81 @@ public class PurchaseDAO {
 	
 	public Map<String,Object> getSaleList(Search search) throws Exception {
 		
-		return null;
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+		Connection con = DBUtil.getConnection();
+		String sql = "SELECT TRANSACTION.AMOUNT AS AMOUNT, TRAN_STATUS_CODE, PRODUCT.PROD_NO AS PROD_NO, "
+					+" USER_ID, PROD_NAME, PRICE, IMAGE_FILE, PRODUCT.REG_DATE AS REG_DATE"
+					+" FROM product, transaction, users"
+					+" WHERE product.prod_no = transaction.prod_no(+)"
+					+" AND transaction.buyer_id = users.user_id"
+					+" AND role = 'user'";
+		
+		String code = search.getSearchOrderbyPrice();
+
+		sql += " ORDER BY TRAN_STATUS_CODE NULLS FIRST";
+		
+		// 높은 순
+		if((code != null) || ("".equals(code))) {
+			if(code.equals("0")) {
+				sql +=" , PRICE DESC";
+			} else if(code.equals("1")) {
+				sql +=" , PRICE ASC";
+			}
+		} else {
+			//sql += " , PRODUCT.PROD_NO";
+		}
+		
+		//System.out.println("ProductDAO::Original SQL :: " + sql);
+		
+		//==> TotalCount GET
+		int totalCount = this.getTotalCount(sql);
+		//System.out.println("ProductDAO :: totalCount  :: " + totalCount);
+		
+		//==> CurrentPage 게시물만 받도록 Query 다시구성
+		sql = makeCurrentPageSql(sql, search);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		ResultSet rs = pstmt.executeQuery();
+	
+		System.out.println(search);
+
+		List<Purchase> list = new ArrayList<Purchase>();
+		
+		while(rs.next()) {
+			Purchase purchase = new Purchase();
+			
+			User user = new User();
+			user.setUserId(rs.getString("USER_ID"));
+			purchase.setBuyer(user);
+			
+			Product product = new Product();
+			product.setProTranCode(rs.getString("TRAN_STATUS_CODE"));
+			product.setProdNo(rs.getInt("PROD_NO"));
+			product.setProdName(rs.getString("PROD_NAME"));
+			product.setFileName(rs.getString("IMAGE_FILE"));
+			product.setPrice(rs.getInt("PRICE"));
+			product.setRegDate(rs.getDate("REG_DATE"));
+			int amount = rs.getInt("AMOUNT");
+			
+			if(amount == 0) {
+				amount = 1;
+			}
+			
+			product.setAmount(amount);
+			
+			purchase.setPurchaseProd(product);
+			System.out.println(product);
+			list.add(purchase);
+		}
+		
+		map.put("totalCount", new Integer(totalCount));
+		map.put("list", list);
+		
+		rs.close();
+		pstmt.close();
+		con.close();
+		
+		return map;
 	}
 	
 	public void insertPurchase(Purchase purchase) throws Exception {
@@ -191,6 +265,24 @@ public class PurchaseDAO {
 		
 		pstmt.close();
 		con.close();
+	}
+	
+	public void updateAmount(Purchase purchase) throws Exception {
+		
+		Connection con = DBUtil.getConnection();
+		
+		String sql = "UPDATE PRODUCT"
+					+ " SET AMOUNT = AMOUNT - ?"
+					+ " WHERE PROD_NO = ?";
+		
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, purchase.getPurchaseProd().getAmount());
+		pstmt.setInt(2, purchase.getPurchaseProd().getProdNo());
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		con.close();		
 	}
 	
 	public void updatePurchase(Purchase purchase) throws Exception {

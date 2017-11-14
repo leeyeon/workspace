@@ -20,11 +20,14 @@ public class AddProductAction extends Action {
 		product.setManuDate(request.getParameter("manuDate"));
 		product.setPrice(Integer.parseInt(request.getParameter("price")));
 		product.setFileName(request.getParameter("fileName"));
+		product.setAmount(Integer.parseInt(request.getParameter("amount")));
 		
 		System.out.println("AddProductAction ::"+product);
 		
 		ProductService service = new ProductServiceImpl();
 		service.addProduct(product);
+		
+		
 		request.setAttribute("product", product);
 		
 		return "forward:/product/addProductView.jsp";

@@ -33,7 +33,7 @@
 						 	상품 목록
 						</c:when>
 						<c:otherwise>
-							상품 정보 및 배송 관리
+							판매 상품 관리
 						</c:otherwise>
 					</c:choose>
 					</td>
@@ -94,7 +94,7 @@
 		<td colspan="11" bgcolor="808285" height="1"></td>
 	</tr>
 	<tr>
-		<td class="ct_list_b" width="70">No</td>
+		<td class="ct_list_b" width="100">No</td>
 		<td class="ct_line02"></td>
 		
 		<c:if test="${!empty user && user.role.trim() eq 'admin'}">
@@ -118,9 +118,9 @@
 			</c:choose>
 		</td>
 		<td class="ct_line02"></td>
-		<td class="ct_list_b" width="150">상품등록일</td>
+		<td class="ct_list_b" width="100">상품개수</td>	
 		<td class="ct_line02"></td>
-		<td class="ct_list_b">현재상태</td>	
+		<td class="ct_list_b">상품등록일</td>
 	</tr>
 	<tr>
 		<td colspan="11" bgcolor="808285" height="1"></td>
@@ -136,52 +136,35 @@
 			</c:if>
 			<td align="left">
 				<c:choose>
-					<c:when test="${empty product.proTranCode || (!empty user && user.role eq 'admin' )}">
+					<c:when test="${product.amount == 0}">
+						<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"
+						height="90px" width="100px" border="0" align="absmiddle"
+						style="padding: 5px"/>&nbsp;
+						${product.prodName}
+					</c:when>
+					<c:otherwise>
 						<a href="/getProduct.do?prodNo=${product.prodNo}&menu=${menu}">
 						<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"
 						height="90px" width="100px" border="0" align="absmiddle"
 						style="padding: 5px"/>&nbsp;
 						${product.prodName}</a>
-					</c:when>
-					<c:otherwise>
-						<img src = "/images/uploadFiles/${product.fileName}" onerror="this.src='/images/no_image.jpg'"
-						height="90px" width="100px" border="0" align="absmiddle"
-						style="padding: 5px"/>&nbsp;
-						${product.prodName}
 					</c:otherwise>
 				</c:choose>
 			</td>
 			<td></td>
 			<td align="right"><fmt:formatNumber value="${product.price}" pattern="#,###"/> 원</td>
 			<td></td>
+			<td align="center">
+				<c:if test="${product.amount == 0}">
+					품절
+				</c:if>	
+				<c:if test="${product.amount != 0}">
+					${product.amount}&nbsp;개
+				</c:if>
+			</td>
+			<td></td>
 			<td align="center">${product.regDate}</td>
 			<td></td>
-			<td align="left">
-			
-			<c:if test="${empty product.proTranCode }">
-				판매중
-			</c:if>
-			<c:if test="${!empty product.proTranCode }">
-			<c:choose>
-				<c:when test="${!empty user && user.role.trim() eq 'admin'}">
-					<c:choose>
-					<c:when test="${product.proTranCode.trim() eq '1'}">구매완료</c:when>
-					<c:when test="${product.proTranCode.trim() eq '2'}">배송중</c:when>
-					<c:otherwise>배송완료</c:otherwise>
-					
-					</c:choose>
-					<c:if test="${product.proTranCode.trim() eq '1' && menu eq 'manage' }">
-						<a href="/updateTranCodeByProd.do?prodNo=${product.prodNo}&tranCode=2">배송하기</a>
-					</c:if>
-				</c:when>
-				<c:otherwise>
-					재고 없음
-				</c:otherwise>
-			</c:choose>
-			
-			</c:if>
-			</td>
-		</tr>
 		<tr>
 			<td colspan="11" bgcolor="D6D7D6" height="1"></td>
 		</tr>

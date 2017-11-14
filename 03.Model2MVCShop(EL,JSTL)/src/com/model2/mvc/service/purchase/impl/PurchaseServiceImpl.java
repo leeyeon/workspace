@@ -17,13 +17,12 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 	@Override
 	public void addPurchase(Purchase purchase) throws Exception {
-		// TODO Auto-generated method stub
 		purchaseDao.insertPurchase(purchase);
+		purchaseDao.updateAmount(purchase); 
 	}
 
 	@Override
 	public Purchase getPurchase(int tranNo) throws Exception {
-		// TODO Auto-generated method stub
 		return purchaseDao.findPurchase(tranNo);
 	}
 
@@ -36,26 +35,22 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 	@Override
 	public Map<String, Object> getPurchaseList(Search search, String buyerId) throws Exception {
-		// TODO Auto-generated method stub
 		return purchaseDao.getPurchaseList(search, buyerId);
 	}
 
 	@Override
 	public Map<String, Object> getSaleList(Search search) throws Exception {
-		// TODO Auto-generated method stub
 		// 어디에서 쓰는지 모르겠음.. ㅠㅠ
 		return purchaseDao.getSaleList(search);
 	}
 
 	@Override
 	public void updatePurcahse(Purchase purchase) throws Exception {
-		// TODO Auto-generated method stub
 		purchaseDao.updatePurchase(purchase);
 	}
 
 	@Override
 	public void updateTranCode(Purchase purchase) throws Exception {
-		// TODO Auto-generated method stub
 		purchaseDao.updateTranCode(purchase);
 	}
 

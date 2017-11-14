@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
@@ -24,6 +25,7 @@ function fncAddPurchase() {
 <body>
 
 <form name="addPurchase" method="post" action="/addPurchase.do">
+<input type="hidden" name="buyerId" value="${user.userId}" />
 
 <table width="100%" height="37" border="0" cellpadding="0"	cellspacing="0">
 	<tr>
@@ -111,12 +113,16 @@ function fncAddPurchase() {
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">
-			구매자아이디 <img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
+		<td width="104" class="ct_write">상품개수</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${user.userId}</td>
-		<input type="hidden" name="buyerId" value="${user.userId}" />
+		<td class="ct_write01">
+			<select name="purchaseAmount" class="ct_input_g" 
+							style="width: 100px; height: 24px" maxLength="20">
+				<c:forEach var="i" begin="1" end="${(product.amount eq 0)? 1 : product.amount}">
+					<option value="${i}" ${(i eq 1)? "selected": ""} >${i}개</option>
+				</c:forEach>
+			</select>
+		</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
@@ -126,7 +132,7 @@ function fncAddPurchase() {
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<select name="paymentOption" class="ct_input_g" 
-							style="width: 100px; height: 19px" maxLength="20">
+							style="width: 100px; height: 24px" maxLength="20">
 				<option value="1" selected="selected">현금구매</option>
 				<option value="2">신용구매</option>
 			</select>

@@ -58,7 +58,11 @@
 			${list.indexOf(purchase) + 1}</a>
 		</td>
 		<td></td>
-		<td align="left">${purchase.purchaseProd.prodName}</td>
+		<td align="left">
+			<a href="/getProduct.do?prodNo=${purchase.purchaseProd.prodNo}&menu=${menu}">
+			${purchase.purchaseProd.prodName}
+		</a>
+		</td>
 		<td></td>
 		<td align="left">${purchase.receiverName ne 'null' ? purchase.receiverName : ''}</td>
 		<td></td>

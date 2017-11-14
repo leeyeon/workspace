@@ -27,6 +27,7 @@ public class AddPurchaseAction extends Action {
 		//System.out.println(prodNo);
 		String buyerId = request.getParameter("buyerId");
 		//System.out.println(buyerId);
+		int purchaseAmount = Integer.parseInt(request.getParameter("purchaseAmount"));
 		
 		HttpSession session = request.getSession();
 		User buyer = (User)session.getAttribute("user");
@@ -49,7 +50,7 @@ public class AddPurchaseAction extends Action {
 		
 		request.setAttribute("purchase", purchase);
 		
-		return "forward:/purchase/addPurchase.jsp";
+		return "forward:/purchase/addPurchase.jsp?purchaseAmount="+purchaseAmount;
 	}
 
 }

@@ -14,6 +14,7 @@ public class Purchase {
 	private String receiverName;
 	private String receiverPhone;
 	private String tranCode;
+	private int amount;
 	private int tranNo;
 	
 	public Purchase(){
@@ -86,13 +87,19 @@ public class Purchase {
 		this.tranNo = tranNo;
 	}
 	
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
 	@Override
 	public String toString() {
-		return "PurchaseVO [tranNo=" + tranNo +" [buyer=" + buyer + ", divyAddr=" + divyAddr
-				+ ", divyDate=" + divyDate + ", divyRequest=" + divyRequest
-				+ ", orderDate=" + orderDate + ", paymentOption="
-				+ paymentOption + ", purchaseProd=" + purchaseProd
-				+ ", receiverName=" + receiverName + ", receiverPhone="
-				+ receiverPhone + ", tranCode=" + tranCode + "]";
+		return "Purchase [buyer=" + buyer + ", divyAddr=" + divyAddr + ", divyDate=" + divyDate + ", divyRequest="
+				+ divyRequest + ", orderDate=" + orderDate + ", paymentOption=" + paymentOption + ", purchaseProd="
+				+ purchaseProd + ", receiverName=" + receiverName + ", receiverPhone=" + receiverPhone + ", tranCode="
+				+ tranCode + ", amount=" + amount + ", tranNo=" + tranNo + "]";
 	}
 }

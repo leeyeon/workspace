@@ -24,7 +24,7 @@ public class User implements Serializable {
     ///Constructor
     public User() {
 	}
-    public User (	String userId, String userName,String password, 
+    public User (	String userId, String userName,String password,  
     							Integer age, int grade ) {
 		this.userId = userId;
 		this.userName = userName;

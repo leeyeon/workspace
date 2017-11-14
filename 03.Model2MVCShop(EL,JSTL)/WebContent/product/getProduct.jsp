@@ -63,6 +63,16 @@
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
+	<c:if test="${param.menu ne 'purchase'}">
+	<tr>
+		<td width="104" class="ct_write">상품개수</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01"> ${product.amount}개</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	</c:if>
 	<tr>
 		<td width="104" class="ct_write">
 			상품이미지 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
@@ -139,17 +149,19 @@
 					</td>
 				</c:when>
 				<c:otherwise>
-					<c:if test="${!empty user && user eq 'user'}">
-						<td width="17" height="23">
-							<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
-						</td>
-						<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
-							<a href="/addPurchaseView.do?prodNo=${product.prodNo}">구매</a>
-						</td>
-						<td width="14" height="23">
-							<img src="/images/ct_btnbg03.gif" width="14" height="23">
-						</td>
-						<td width="30"></td>				
+					<c:if test="${!empty user && user.role eq 'user'}">
+						<c:if test="${param.menu ne 'purchase'}">
+							<td width="17" height="23">
+								<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
+							</td>
+							<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
+								<a href="/addPurchaseView.do?prodNo=${product.prodNo}">구매</a>
+							</td>
+							<td width="14" height="23">
+								<img src="/images/ct_btnbg03.gif" width="14" height="23">
+							</td>
+							<td width="30"></td>
+						</c:if>			
 					</c:if>
 					
 					<td width="17" height="23">

@@ -22,13 +22,16 @@ public class ProductDAO {
 
 		Connection con = DBUtil.getConnection();
 		
-		String sql = "SELECT PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, "
-					 + "IMAGE_FILE, REG_DATE"
-					 + " FROM PRODUCT"
-					 + " WHERE PROD_NO = ?";
+		String sql = "SELECT PRODUCT.PROD_NO AS PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, "
+					 + " TRAN_STATUS_CODE, IMAGE_FILE, REG_DATE, PRODUCT.AMOUNT AS AMOUNT "
+					 + " FROM PRODUCT , TRANSACTION"
+					 + " WHERE product.prod_no = transaction.prod_no(+)"
+					 + " AND PRODUCT.PROD_NO = ?";
 		
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, index);
+		
+		//System.out.println("이야아아아ㅏㅇ");
 		
 		ResultSet rs = pstmt.executeQuery();
 		
@@ -42,9 +45,25 @@ public class ProductDAO {
 			product.setPrice(rs.getInt("PRICE"));
 			product.setFileName(rs.getString("IMAGE_FILE"));
 			product.setRegDate(rs.getDate("REG_DATE"));
+			product.setProTranCode(rs.getString("TRAN_STATUS_CODE"));
+			int amount = rs.getInt("AMOUNT");
+			
+			if(rs.getString("TRAN_STATUS_CODE") == null) {
+				if(amount == 0) {
+					amount = 1;
+				}
+			} else {
+				if(amount == 0) {
+					amount = 0;
+				} else {
+					amount--;
+				}
+			}
+			
+			product.setAmount(amount);
 		}
 		
-		//System.out.println(product);
+		System.out.println(product);
 		
 		rs.close();
 		pstmt.close();
@@ -59,8 +78,8 @@ public class ProductDAO {
 		Map<String,Object> map = new HashMap<String,Object>();
 		
 		Connection con = DBUtil.getConnection();
-		String sql = "SELECT TRAN_STATUS_CODE, PRODUCT.PROD_NO AS PROD_NO, PROD_NAME, "
-					+" PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE"
+		String sql = "SELECT DISTINCT TRAN_STATUS_CODE, PRODUCT.PROD_NO AS PROD_NO, PROD_NAME, "
+					+" PROD_DETAIL, MANUFACTURE_DAY, PRICE, IMAGE_FILE, REG_DATE, PRODUCT.AMOUNT AS AMOUNT"
 					+" FROM product, transaction"
 					+" WHERE product.prod_no = transaction.prod_no(+)";
 
@@ -77,16 +96,22 @@ public class ProductDAO {
 		}
 		
 		String code = search.getSearchOrderbyPrice();
+		// admin 일 떄 2가 첫번째!!
+		// user 일 때 2 -> null
+		//sql +=" ORDER BY AMOUNT, DECODE(TRAN_STATUS_CODE, 2, 'a', 1,'b', 3,'c') NULLS FIRST"
+		//		+ ", PRODUCT.PROD_NO";
+		
+		sql += " ORDER BY TRAN_STATUS_CODE NULLS FIRST, PRODUCT.AMOUNT";
 		
 		// 높은 순
 		if((code != null) || ("".equals(code))) {
 			if(code.equals("0")) {
-				sql +=" ORDER BY PRICE DESC";
+				sql +=" , PRICE DESC";
 			} else if(code.equals("1")) {
-				sql +=" ORDER BY PRICE ASC";
-			} 
+				sql +=" , PRICE ASC";
+			}
 		} else {
-			sql +=" ORDER BY PRODUCT.PROD_NO";
+			sql += " , PRODUCT.PROD_NO";
 		}
 		
 		//System.out.println("ProductDAO::Original SQL :: " + sql);
@@ -114,6 +139,21 @@ public class ProductDAO {
 			product.setFileName(rs.getString("IMAGE_FILE"));
 			product.setRegDate(rs.getDate("REG_DATE"));
 			product.setProTranCode(rs.getString("TRAN_STATUS_CODE"));
+			int amount = rs.getInt("AMOUNT");
+			
+			if(rs.getString("TRAN_STATUS_CODE") == null) {
+				if(amount == 0) {
+					amount = 1;
+				}
+			} else {
+				if(amount == 0) {
+					amount = 0;
+				} else {
+					amount--;
+				}
+			}
+			product.setAmount(amount);
+			
 			list.add(product);
 		}
 		
@@ -135,8 +175,8 @@ public class ProductDAO {
 		
 		String sql = "INSERT INTO PRODUCT"
 					+ "(PROD_NO, PROD_NAME, PROD_DETAIL, MANUFACTURE_DAY, PRICE, "
-					+ "IMAGE_FILE, REG_DATE)"
-					+ "VALUES (seq_product_prod_no.nextval,?,?,?,?,?,SYSDATE)";
+					+ "IMAGE_FILE, REG_DATE, AMOUNT, BEFOREAMOUNT)"
+					+ "VALUES (seq_product_prod_no.nextval,?,?,?,?,?,SYSDATE,?,?)";
 		
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, product.getProdName());
@@ -144,6 +184,8 @@ public class ProductDAO {
 		pstmt.setString(3, product.getManuDate().replaceAll("-", "").trim());
 		pstmt.setInt(4, product.getPrice());
 		pstmt.setString(5, product.getFileName());
+		pstmt.setInt(6, product.getAmount());
+		pstmt.setInt(7, product.getAmount());
 		pstmt.executeUpdate();
 		
 		con.close();

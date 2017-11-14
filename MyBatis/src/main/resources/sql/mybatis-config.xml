@@ -27,7 +27,6 @@
         <property name="password" value="ibatis"/>
       </dataSource>
     </environment>
-    
   </environments>
 
   <!-- SQL Definition :: file include -->

@@ -6,7 +6,7 @@
 			
 	</c:if>
 	<c:if test="${ resultPage.currentPage > resultPage.pageUnit }">
-			<a href="javascript:fncGetList('${ resultPage.currentPage-1}')">◀ 이전</a>
+			<a href="javascript:fncGetList('${search.searchOrderbyPrice}','${ resultPage.currentPage-1}')">◀ 이전</a>
 	</c:if>
 	
 	<c:forEach var="i"  begin="${resultPage.beginUnitPage}" end="${resultPage.endUnitPage}" step="1">
@@ -17,7 +17,7 @@
 			
 	</c:if>
 	<c:if test="${ resultPage.endUnitPage < resultPage.maxPage }">
-			<a href="javascript:fncGetList('${resultPage.endUnitPage+1}')">이후 ▶</a>
+			<a href="javascript:fncGetList('${search.searchOrderbyPrice}','${resultPage.endUnitPage+1}')">이후 ▶</a>
 	</c:if>
 	
 

@@ -26,9 +26,12 @@
 	</tr>
 	<tr>
 		<td>구매방법</td>
-		<td>
-		${(purchase.paymentOption eq 1)? "현금구매" : "신용구매"}
-		</td>
+		<td>${(purchase.paymentOption eq 1)? "현금구매" : "신용구매"}</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>구매개수</td>
+		<td>${purchase.purchaseProd.amount}</td>
 		<td></td>
 	</tr>
 	<tr>

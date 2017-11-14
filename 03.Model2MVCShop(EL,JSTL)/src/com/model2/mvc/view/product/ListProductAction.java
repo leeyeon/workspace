@@ -59,7 +59,7 @@ public class ListProductAction extends Action {
 		
 		//System.out.println(CommonUtil.toAmountStr(((List<Product>)map.get("list")).get(0).getPrice()));
 		
-		return "forward:/product/listProduct.jsp?";
+		return "forward:/product/listProduct.jsp";
 	}
 
 }

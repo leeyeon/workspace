@@ -1,12 +1,17 @@
 package com.model2.mvc.view.purchase;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.model2.mvc.common.Page;
+import com.model2.mvc.common.Search;
 import com.model2.mvc.framework.Action;
+import com.model2.mvc.service.product.ProductService;
+import com.model2.mvc.service.product.impl.ProductServiceImpl;
 import com.model2.mvc.service.purchase.PurchaseService;
 import com.model2.mvc.service.purchase.impl.PurchaseServiceImpl;
 
@@ -16,34 +21,43 @@ public class ListSaleAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
-		/*
-		HttpSession session = request.getSession();
-		UserVO userVO = (UserVO)session.getAttribute("user");
-		String buyerId = userVO.getUserId();
+		// search logic
+		Search search = new Search();
 		
-		SearchVO searchVO = new SearchVO();
-		
-		int page = 1;
-		if(request.getParameter("page") != null) {
-			page = Integer.parseInt(request.getParameter("page"));
+		int currentPage = 1;
+		if(request.getParameter("currentPage") != null){
+			currentPage=Integer.parseInt(request.getParameter("currentPage"));
 		}
 		
-		searchVO.setPage(page);
-		searchVO.setSearchCondition(request.getParameter("searchCondition"));
-		searchVO.setSearchKeyword(request.getParameter("searchKeyword"));
+		search.setCurrentPage(currentPage);
+		search.setSearchCondition(request.getParameter("searchCondition"));
+		search.setSearchKeyword(request.getParameter("searchKeyword"));
 		
-		String pageUnit = getServletContext().getInitParameter("pageSize");
-		searchVO.setPageUnit(Integer.parseInt(pageUnit));
+		String priceOrderbyCode = null;
+		if(request.getParameter("priceOrderbyCode") != null){
+			search.setSearchOrderbyPrice(request.getParameter("priceOrderbyCode"));
+		}
 		
+		// web.xml  meta-data 로 부터 상수 추출 
+		int pageSize = Integer.parseInt( getServletContext().getInitParameter("pageSize"));
+		int pageUnit  =  Integer.parseInt(getServletContext().getInitParameter("pageUnit"));
+		search.setPageSize(pageSize);
+		
+		// business logic
 		PurchaseService service = new PurchaseServiceImpl();
-		HashMap<String, Object> map = service.getPurchaseList(searchVO, buyerId);
+		Map<String, Object> map = service.getSaleList(search);
 		
-		request.setAttribute("map", map);
-		request.setAttribute("searchVO", searchVO);
-		*/
+		Page resultPage	= 
+						new Page( currentPage, ((Integer)map.get("totalCount")).intValue(), 
+						pageUnit, pageSize);
+		//System.out.println("ListProductAction ::"+resultPage);
 		
-		//return "forward:/listProduct.do?menu=manage";
-		return null;
+		request.setAttribute("list", map.get("list"));
+		request.setAttribute("resultPage", resultPage);
+		request.setAttribute("search", search);
+		request.setAttribute("menu", request.getParameter("menu"));
+		
+		return "forward:/purchase/listSale.jsp";
 	}
 
 }

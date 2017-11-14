@@ -54,6 +54,7 @@ public class ListPurchaseAction extends Action {
 		request.setAttribute("list", map.get("list"));
 		request.setAttribute("resultPage", resultPage);
 		request.setAttribute("search", search);
+		request.setAttribute("menu", request.getParameter("menu"));
 		
 		return "forward:/purchase/listPurchase.jsp";
 	}
