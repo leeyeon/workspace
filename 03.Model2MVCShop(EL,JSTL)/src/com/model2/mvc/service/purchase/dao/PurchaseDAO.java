@@ -248,7 +248,7 @@ public class PurchaseDAO {
 		
 		String sql = "INSERT INTO TRANSACTION (TRAN_NO, PROD_NO, BUYER_ID, PAYMENT_OPTION, RECEIVER_NAME, RECEIVER_PHONE, "
 										+ "DLVY_ADDR, DLVY_REQUEST, TRAN_STATUS_CODE, ORDER_DATE, DLVY_DATE)"
-										+ " VALUES (seq_transaction_tran_no.nextval, ?,?,?,?,?, ?,?,?,SYSDATE,?)";
+										+ " VALUES (seq_transaction_tran_no.nextval, ?,?,?,?,?, ?,?,?,?,SYSDATE)";
 		
 		PreparedStatement pstmt = con.prepareStatement(sql);
 		pstmt.setInt(1, product.getProdNo());

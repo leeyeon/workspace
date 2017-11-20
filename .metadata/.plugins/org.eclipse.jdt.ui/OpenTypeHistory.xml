@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=03.IoC Container/D:\/z.utility\/10.spring\/spring-framework-4.0.9.RELEASE\/libs\/spring-beans-4.0.9.RELEASE.jar&lt;org.springframework.beans.factory(BeanNameAware.class[BeanNameAware" modifiers="1537" timestamp="1419889192000"/>
-<typeInfo handle="=03.IoC Container/D:\/z.utility\/10.spring\/spring-framework-4.0.9.RELEASE\/libs\/spring-beans-4.0.9.RELEASE.jar&lt;org.springframework.beans.factory(FactoryBean.class[FactoryBean" modifiers="1537" timestamp="1419889192000"/>
-<typeInfo handle="=03.Model2MVCShop\(EL,JSTL)/src&lt;com.model2.mvc.framework{Action.java[Action" modifiers="1025" timestamp="1397003110000"/>
+<typeInfo handle="=AOP/D:\/z.utility\/10.spring\/spring-framework-4.0.9.RELEASE\/libs\/spring-aop-4.0.9.RELEASE.jar&lt;org.springframework.aop(MethodBeforeAdvice.class[MethodBeforeAdvice" modifiers="1537" timestamp="1419889198000"/>
 </typeInfoHistroy>

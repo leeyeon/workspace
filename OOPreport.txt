@@ -1039,7 +1039,7 @@ onstructor Injection 과 setter Injection
 153. pattern
 singleTon
 vo
-dao
+dao : rdbms, filesystem, network 인지 알 필요 X
 front controller
 factory
 
@@ -1049,10 +1049,98 @@ factory
 
 156. binding ..:: ResultSet -> VO 변경
 
+157. myBatis의 component화 : 컴포넌트 ... == 모듈화
+ <sql>
+ <include> 제공
+
+component : jar file.... 특정 개념이나 문제영역을 해결한 재 사용 확장 가능한(interface 로 encapsulation 된 재사용 가능한) 라이브러리
+
+158. Java 현재 시간 구하기.
+System.currentTimeMillis(); 
+
+159. mybatis - resultMap 구성...
+<resultMap id="변수명" type="bean type">
+	<result property="field명" column="DB컬럼이름" jdbcType="null 일때 무슨 datatype?"/>
+	<association proderty="field명" javaType="has a 관계인 bean type" >
+	</association>
+	<collection ....> => has many
+
+
+160.Spring Exception...
+DataAccessException
+ 
+ - 일관된 예외처리를 하기 위함
+ 
+ - SQLException이나 HibernateException 등과 같은 특정 기술에 의존적인 예외를 던지지 않는다.
+ 
+ - 모든 DAO Exceptiond는 org.springframework.dao.DataAccessException의 서브 클래스
+ 
+ - 데이터 접근 인터페이스가 구현에 의존적인 예외가 아닌 스프링의 일반적인 예외를 던짐으로서, 특정한 퍼시스턴스 구현에 결합되는 일을 방지(loose coupling)
+ 
+ - RuntimeException이기 때문에 비검사 예외(unchecked exception)에 속한다.
+   => DAO 계층에서 던진 예외를 코드에서 반드시 처리하지 않아도 된다는 의미
+   => 검사 예외(checked exception)는 과도한 catch나 throw 절을 야기시켜 코드를 난잡하게 만들 수 있다는 스프링의 일반적인 철학을 따르는 것
+ 
+ - NestedRuntimeException의 서브클래스이다.
+ => 항상 NestedRuntimeException의 getCause() 메소드를 통해 루트 예외인 Exception을 사용할 수 있다는 의미
+ 
+ - Spring은 DAO지원에 관한 특정 기술에 대한 예외들을 인식하며, 각 데이터베이스 제품의 에러 코드까지 인식 가능
+ - 자신의 예외 분류 체계에 있는 좀 더 특정한 예외중의 하나를 사용하여 다시 던질 수 있다. 
+
+사용자 삽입 이미지
 
 
 
 
 
+CleanupFailureDataAccessException
+ 
+ => 성공적으로 작동한 뒤, 데이터베이스 자원을 반환할 때 발생하는 경우(Connection의 반환 등)
+ 
+ DataAccessResourceFailureException
+ 
+ => 데이터베이스로의 연결 실패 등 완전하게 자원 접근에 실패했을 경우
+ 
+ DataIntegrityViolationExcetpion
+ 
+ => 유일키 제약(unique constraint) 위반과 같은 정합성 위반이 삽입(insert)나 갱신(update)의 결과로 발생한 경우
+ 
+ DataRetrievalFailureException
+ 
+ => 기본키(primary key)로 레코드를 찾지 못하는 경우 등과 같이 어떤 데이터를 가져오지 못하는 경우
+ 
+ DeadlockLoserDataAccessException
+ 
+ => 현재의 프로세스가 교착상태(deadlock)에 빠진 경우
+ 
+ IncorrectUpdateSemanticsDataAccessException
+ 
+ => 원하는 수보다 많은 레코드를 갱신하는 등 갱신 작업에 있어서 의도하지 않은 어떤 일이 발생하는 경우. 트랜잭션이 롤백(rollback)되지는 않는다.
+ 
+ InvalidDataAccessApiUsageException
+ 
+ => 실행되기 전에 컴파일돼야 할 질의문의 컴파일에 실패하는 등 데이터 접근 자바 API를 잘못 사용하는 경우
+ 
+ InvalidDataAccessResourceUsageException 
+ 
+ => 관계형 데이터베이스 접근을 위해 잘못된 SQL 문법을 사용하는 등 자원에 대한 접근을 잘못하는 경우
+ 
+ OptimisticLockingFailureException
+ 
+ => 낙관적 잠금(optimistic locking)에 실패한 경우. 이 예외는 ORM 툴이나 커스텀 DAO 구현체에 의해 발생된다.
+ 
+ * 낙관적 잠금(optimistic locking)
+ 
+ 동일한 데이터에 정확히 동시에 접근하는 일이 발생할 확률이 매우 낮을 것이라고 낙관하여 배타적 잠금을 하지 않는, 즉 데이터에 대한 동시 접근을 허용하는 정책
+ 
+ TypeMismatchDataAccessException
+ 
+ => String을 데이터베이스의 숫자 컬럼에 삽입하려고 하는 등 자바 타입과 데이터 타입이 일치하지 않는 경우
+ 
+ UncategorizedDataAccessException
+ 
+ => 무엇인가 잘못됐지만 좀 더 구체적으로 판별할 수 없는 경우
+
+161. transaction 관리 : service 단에서 함
 
 
