@@ -1143,4 +1143,16 @@ CleanupFailureDataAccessException
 
 161. transaction 관리 : service 단에서 함
 
+162. Hook Method
+
+163. White Box
+            +
+       Black Box
+    = Gray Box
+
+
+
+
+
+
 

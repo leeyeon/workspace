@@ -11,8 +11,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductService;
-import com.model2.mvc.service.product.dao.impl.ProductDaoImpl;
-import com.model2.mvc.service.product.dao.impl.ProductServiceImpl;
+import com.model2.mvc.service.product.impl.ProductDaoImpl;
+import com.model2.mvc.service.product.impl.ProductServiceImpl;
 
 import junit.framework.Assert;
 

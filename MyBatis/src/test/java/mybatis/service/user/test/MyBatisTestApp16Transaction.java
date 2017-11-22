@@ -18,9 +18,8 @@ public class MyBatisTestApp16Transaction {
 	public static void main(String[] args){
 
 		ApplicationContext context =
-				new ClassPathXmlApplicationContext(
-																	new String[] {	"/config/commonservice16.xml"	 }
-									                                  );
+				new ClassPathXmlApplicationContext(new String[] {	"/config/commonservice16.xml"	 }
+									              );
 		System.out.println("\n");
 
 		//==> Bean/IoC Container ∑Œ ∫Œ≈Õ »πµÊ«— UserService ¿ŒΩ∫≈œΩ∫ »πµÊ
