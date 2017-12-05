@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="/Ajax/10common/logUtil03.js"></script>
+	 <script type="text/javascript">
+	 
+		var count = 1;
+
+		//Element Node(UI동적변경) 추가하는 Function
+		function appendNode(){
+
+			count++;
+			
+			var div = "<div id='append"+count+"'>이순신"+count+"</div>";
+			
+			$("body").append(div);
+		}
+
+		//Element 추가하는 Function and innerHTML을 이용 삭제버튼 추가
+		function appendRemoveNode(){
+			
+			count++;
+			
+			var div = "<div id='append"+count+"'>이순신"+count
+						+'<input type="button" value="삭제" class="remove" /></div>';
+			//<input type="button" value="삭제" onclick="javascript:removeEL('+count+')"/>'
+			$("body").append(div);
+			
+		}
+		
+		//Element 삭제 Function
+		function removeEL(idIndex){
+			var removeEL = $("#append"+idIndex);
+			if( removeEL != null){
+				removeEL.parent.remove();
+				alert("삭제완료!!");
+			}
+		}
+		
+		$(function() {
+			$($(":button")[0]).bind("click", function(){
+				appendNode();
+			})
+			
+			$($(":button")[1]).bind("click", function() {
+				appendRemoveNode();
+			})
+			
+			//$(document).on( eventName, selector, function(){} );
+			$(document).on("click",".remove", function() {
+				//alert("??");
+				$(this).parent().remove();
+			})
+			
+		})
+		
+	</script>
+</head>
+
+<body>
+	<input type="button" value="추가"/>
+	<input type="button" value="추가,삭제버튼같이 만들기"/>
+
+	<div id="append1">이순신1</div>
+	
+	<div id="console" style="border: 3px solid #F00" >
+		log 출력 :  <br/>
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+ 	<script type="text/javascript" src="/Ajax/10common/logUtil03.js"></script>
+	<script type="text/javascript">
+
+		var test01 = {a:'a', b:'b', c:'c'};
+		
+		var test02 = ['aa', 'bb', 'cc'];
+		
+		var test03 = {
+			aaa:'aaa',
+			bbb:'bbb',
+			ccc:['z', 'zz', 'zzz']
+		};
+		
+		function displayLog() {
+			
+			alert("1. name=value 접근");
+			log(test01.a);
+			log(test01.c);
+			
+			alert("2. array 접근");
+			log(test02[0]);
+			log(test02[1]);
+			
+			alert("3. name=value 와 array 접근");
+			log(test03.aaa);
+			log(test03.ccc[0]);
+			log(test03.ccc[2]);
+			
+			alert(test01);
+			alert(JSON.stringify(test01));
+			
+			var text = JSON.stringify(test01);
+			alert(text);
+			
+			var jsonObj = JSON.parse(text);
+			alert(jsonObj);
+			alert(jsonObj.a);
+
+		}
+
+</script>
+
+</head>
+
+<body>
+		
+	<input type="button" value="JSON Data 접근" onClick="javascript:displayLog()">
+	
+	<div id="console" style="border: 3px solid #F00" >
+		log 출력 :  <br/>
+	</div>
+		
+</body>
+
+</html>

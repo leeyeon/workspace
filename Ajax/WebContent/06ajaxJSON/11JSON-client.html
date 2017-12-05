@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+	<script type="text/javascript" src="/Ajax/10common/ajaxUtil02.js"></script>
+ 	<script type="text/javascript" src="/Ajax/10common/logUtil03.js"></script>
+	<script type="text/javascript">
+	
+	 	function dispalyLog(){
+
+	 		//request객체 생성 function 호출
+	 		createRequest();
+	 		
+	 		//접속 URL 
+	 		//var url = "JSON-server-string.jsp";
+	 		var url = "JSON-server-object.jsp";
+			
+	 		//==>ajaxUtil02.js의 openSendRequest(httpURL, httpMETHOD, httpPARAM, callBackMethod) 호출
+			//==>:: open()/send()/callback() Method등 수행
+			var queryString = null;
+			openSendRequest(url,"GET",queryString,updatePage);
+	 	}
+	
+	 	//CallBackFunction Definition
+		function updatePage(){
+
+	 		if ( request.readyState ==4) {
+
+	 			if(request.status == 200){
+	 				
+	 				var serverData = request.responseText;
+	 				alert(serverData);
+	 				
+	 				var JSONData = eval("("+serverData+")");
+
+			 		alert("JSONData : "+JSONData);
+					
+					log(JSONData.aaa);
+					log(JSONData.ccc[0]);
+					log(JSONData.ccc[2]);
+	 			}else{
+					alert("에러 발생 : "+request.status);
+				}
+			}
+		}
+	
+	</script>
+	
+</head>
+
+<body>
+
+<input type="button" value="JSON Data 접근" onClick="javascript:dispalyLog()">
+
+<div id="console" style="border: 3px solid #F00" >
+	log 출력 :  <br/>
+</div>
+	
+</body>
+
+</html>

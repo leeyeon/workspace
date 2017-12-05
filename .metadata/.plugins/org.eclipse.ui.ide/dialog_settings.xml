@@ -5,6 +5,12 @@
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="D:\z.utility\수업소스\09.Model2MVCShop(jQuery)"/>
+			<item value="C:\Users\301-6\Desktop\07.Model2MVCShop(URI,pattern)"/>
+			<item value="C:\Users\301-6\Desktop"/>
+			<item value="D:\z.utility\수업소스"/>
+			<item value="C:\Users\301-6\Desktop\03.Model2MVCShop(EL,JSTL)"/>
+			<item value="D:\z.utility\수업소스\z.StudyGit.06.Model2MVCShop(Presentation+BusinessLogic)"/>
 			<item value="D:\z.utility\수업소스\05.Model2MVCShop(AOP,Transaction)"/>
 			<item value="D:\02base"/>
 			<item value="C:\Users\301-6\Downloads\java_study-master\java_study-master"/>

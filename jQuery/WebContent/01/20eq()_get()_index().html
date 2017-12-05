@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+	<script src="../javascript/jquery-2.1.4.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			/*
+			var value = "";
+			alert($('p').eq(0).html());
+			
+			$('form').eq(1).css('color', 'green');
+			
+			*/
+			
+			/*
+			var value = "";
+			
+			$('form').each(function(index, elem) {
+				value += (index+1)+" : "+$(elem).html().trim()+"\n";
+				alert(value);
+			});
+			*/
+			
+			var index = $('form').index($('form[name=test02]'));
+			alert(index);
+		});
+	
+	</script>
+	
+</head>
+
+<body>
+
+	<h1>javascript Framework : jQuery 학습</h1>
+	<h2>사용법(?)에 익숙해 지자 </h2>
+
+	<form name="test01">
+		<p>jQuery 란 ? </p>
+	</form>
+	
+	<div>
+		<p>javascript Framework</p>
+	</div>
+	
+	<form name="test02">
+		<p>framework 이란 ?
+			<span> 확장,재사용 가능한 Lib</span>
+		</p>
+	</form>
+
+</body>
+
+</html>

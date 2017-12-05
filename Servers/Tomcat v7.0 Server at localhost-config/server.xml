@@ -126,7 +126,8 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 			
 
-      <Context docBase="06.Model2MVCShop(Presentation+BusinessLogic)" path="/" reloadable="true" source="org.eclipse.jst.jee.server:06.Model2MVCShop(Presentation+BusinessLogic)"/></Host>
+      
+      <Context docBase="09.Model2MVCShop(jQuery)" path="/" reloadable="true" source="org.eclipse.jst.jee.server:09.Model2MVCShop(jQuery)"/><Context docBase="Ajax" path="/Ajax" reloadable="true" source="org.eclipse.jst.jee.server:Ajax"/></Host>
     </Engine>
   </Service>
 </Server>

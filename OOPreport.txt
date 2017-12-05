@@ -1150,9 +1150,27 @@ CleanupFailureDataAccessException
        Black Box
     = Gray Box
 
+164. zefo configuration : default로 설정하는 거..
 
+165. JSON : JavaScript Object Notation
 
+166. maven : build framework
+mvnrepository.com
 
+167. jackson JSON 사용 중 UnrecognizedPropertyException 발생 시
 
+-> 첫 번째는 ObjectMapper 클래스를 초기화 한 후 다음의 설정을 추가
+      mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
+-> 두 번째는 ConstraintData 클래스에 다음의 annotation을 추가
+     @JsonIgnoreProperties(ignoreUnknown = true)
 
+168. CDN :: Content Delivery Network
+                 Content Distribution Network
+=> 경로로 라이브러리 다운받은거 ... (네트워크 있어야됨) 
+
+169. AJAX(Asynchronous JavaScript And XML)
+
+170. IDL : Interface Definition Language :: 수도코드보다 한단계 위... 구체적 language X
+
+171. zero configuration : 설정이 default인거
