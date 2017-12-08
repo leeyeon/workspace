@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+	<!-- /////////////////////////////  변경된 부분 ////////////////////////
+		//==> XMLHttpRequest 객체를 얻는 function 은 ajaxUtil01.js
+		///////////////////////////////////////////////////////////////////////////////	 -->
+	 <!--  XMLHttpRequest 인스턴스 생성을  ajaxUtil01.js 모듈로 처리 -->
+	 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	 <script type="text/javascript" src="/Ajax/10common/ajaxUtil02.js"></script>
+	 <script type="text/javascript">
+		
+		function use_ajax_option(){
+
+			$.ajax(
+				{
+					url : "postJSON-orderServer.jsp",
+					method : "POST",
+					data : {
+								name : $("#name").val(),
+								phone : $("#phone").val()
+							},
+					dataType : "json",
+					success : function(JSONData, status) {
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+				}
+			)
+
+		}
+		
+		function use_ajax_url_option(){
+
+			$.ajax( "postJSON-orderServer.jsp",
+				{ 	method : "POST",
+					data : {
+								name : $("#name").val(),
+								phone : $("#phone").val()
+							},
+					dataType : "json",
+					success : function(JSONData, status) {
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+				}
+			)
+
+		}
+		
+		function use_getJSON(){
+
+			$.getJSON( "postJSON-orderServer.jsp",
+					{
+						name : $("#name").val(),
+						phone : $("#phone").val()
+					},
+					function(JSONData, status) {
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+			)
+		}
+		
+		function use_postJSON(){
+
+			$.post( "postJSON-orderServer.jsp",
+					{
+						name : $("#name").val(),
+						phone : $("#phone").val()
+					},
+					function(JSONData, status) {
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+			)
+		}
+
+		$(function() {
+
+			$("form")[0].reset();
+			
+			$("textarea").bind("click", function() {
+				//use_ajax_option();
+				//use_ajax_url_option();
+				use_getJSON();
+			})
+			
+		});
+		
+	 </script>
+</head>
+
+<body>
+
+	<form>
+	
+		<p>이 &nbsp;&nbsp;&nbsp;&nbsp; 름  :  
+				<input type="text" size="14" name="name"  id ="name"/>
+		</p>
+		
+		<p>전화번호 :  
+				<input type="text" size="14" name="phone"  id="phone"/>
+		</p>
+	
+		<p>주 &nbsp;&nbsp;&nbsp;&nbsp; 소 : </p>  
+	
+		<p>
+			<textarea 	rows="3" cols="50" name="address" id="address" >이름을 입력후 :: 여기에click...</textarea>	
+		</p>
+				
+		<p id="testInnerHtml">XXX<input type="submit" value="주문하기" id="submit"/>YYY</p>
+		
+	</form>
+	
+</body>
+
+</html>

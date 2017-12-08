@@ -1174,3 +1174,24 @@ mvnrepository.com
 170. IDL : Interface Definition Language :: 수도코드보다 한단계 위... 구체적 language X
 
 171. zero configuration : 설정이 default인거
+
+172. 무한 스크롤
+$(document).scroll()// 스크롤이 변경될때마다 이벤트를 발생시킴
+$(document).height()// 현재페이지(문서)의 높이
+$(window).height()// 윈도우의 크기
+$(window).scrollTop()// 브라우저의 스크롤 위치값
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

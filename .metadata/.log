@@ -7032,3 +7032,756 @@ org.eclipse.jface.text.BadLocationException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+
+!ENTRY org.eclipse.wst.validation 4 0 2017-12-05 13:23:16.260
+!MESSAGE IWAE0027E Could not retrieve the validation configuration for resource 10.Model2MVCShop(Ajax).
+!STACK 0
+java.lang.reflect.InvocationTargetException: IWAE0027E Could not retrieve the validation configuration for resource 10.Model2MVCShop(Ajax).
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:135)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:299)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:120)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:84)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:129)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:94)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:52)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:117)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:105)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Resource '/10.Model2MVCShop(Ajax)' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:141)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1181)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	... 25 more
+Root exception:
+org.eclipse.core.internal.resources.ResourceException: Resource '/10.Model2MVCShop(Ajax)' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:141)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1181)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:299)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:120)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:84)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:129)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:94)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:52)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:117)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:105)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2017-12-05 13:23:21.875
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.aopalliance-1.0.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.dbcp-1.2.2.osgi.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.logging-1.1.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.pool-1.5.3.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.log4j-1.2.15.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.junit-4.7.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\commons-fileupload-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\commons-io-1.4.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\jackson-core-asl-1.9.13.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\jackson-mapper-asl-1.9.13.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\javax.servlet.jsp.jstl-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\javax.servlet.jsp.jstl-api-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\mybatis-3.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\mybatis-spring-1.2.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\ojdbc14.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-aop-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-aspects-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-beans-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-context-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-context-support-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-core-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.876
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-expression-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-instrument-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-instrument-tomcat-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-jdbc-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-jms-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-messaging-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-orm-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.877
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-oxm-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-test-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-tx-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-web-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-webmvc-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-webmvc-portlet-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-05 13:23:21.879
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-websocket-4.0.9.RELEASE.jar. May be locked by another process.
+
+!ENTRY org.eclipse.wst.validation 4 0 2017-12-05 13:24:18.534
+!MESSAGE IWAE0027E Could not retrieve the validation configuration for resource 09.Model2MVCShop(jQuery).
+!STACK 0
+java.lang.reflect.InvocationTargetException: IWAE0027E Could not retrieve the validation configuration for resource 09.Model2MVCShop(jQuery).
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:135)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:299)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:120)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:84)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:129)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:94)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:52)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:117)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:105)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: org.eclipse.core.internal.resources.ResourceException: Project '09.Model2MVCShop(jQuery)' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1181)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	... 25 more
+Root exception:
+org.eclipse.core.internal.resources.ResourceException: Project '09.Model2MVCShop(jQuery)' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Resource.checkAccessibleAndLocal(Resource.java:215)
+	at org.eclipse.core.internal.resources.Resource.getSessionProperty(Resource.java:1181)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getProjectConfiguration(ConfigurationManager.java:126)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.getConfiguration(ConfigurationManager.java:251)
+	at org.eclipse.wst.validation.internal.ValManager.getValidatorsNotCached(ValManager.java:226)
+	at org.eclipse.wst.validation.internal.ValManager.access$1(ValManager.java:220)
+	at org.eclipse.wst.validation.internal.ValManager$ValidatorCache.getValidatorsCached(ValManager.java:1263)
+	at org.eclipse.wst.validation.internal.ValManager.getValidators(ValManager.java:197)
+	at org.eclipse.wst.validation.internal.ValManager.validate(ValManager.java:668)
+	at org.eclipse.wst.validation.internal.ValBuilderJob$Visitor.visit(ValBuilderJob.java:299)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:120)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:84)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:129)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:94)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:52)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:117)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:105)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.fullBuild(ValBuilderJob.java:219)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.run(ValBuilderJob.java:178)
+	at org.eclipse.wst.validation.internal.ValBuilderJob.runInWorkspace(ValBuilderJob.java:126)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:48:03.444
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:48:03.456
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:51:02.834
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:51:02.840
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:51:36.225
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 15:51:36.231
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2017-12-05 18:51:58.438 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-12-05 18:52:16.072
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\301-6'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 19:43:00.833
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 19:43:00.839
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 20:33:13.542
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 20:33:13.549
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 20:54:41.340
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-05 20:54:41.345
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jst.server.core 4 0 2017-12-05 21:03:32.402
+!MESSAGE Could not launch in profiling mode because no profilers are configured.
+!SESSION 2017-12-06 09:06:05.767 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-12-06 09:06:20.647
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\301-6'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 11:14:22.546
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 11:14:22.546
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.aopalliance-1.0.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.dbcp-1.2.2.osgi.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.logging-1.1.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.commons.pool-1.5.3.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.apache.log4j-1.2.15.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\com.springsource.org.junit-4.7.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\commons-fileupload-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\commons-io-1.4.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\jackson-core-asl-1.9.13.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\jackson-mapper-asl-1.9.13.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\javax.servlet.jsp.jstl-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\javax.servlet.jsp.jstl-api-1.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\json_simple-1.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\mybatis-3.2.1.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\mybatis-spring-1.2.0.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\ojdbc14.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-aop-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-aspects-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-beans-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-context-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-context-support-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-core-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-expression-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-instrument-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-instrument-tomcat-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-jdbc-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-jms-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-messaging-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-orm-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-oxm-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.702
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-test-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.718
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-tx-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.718
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-web-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.718
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-webmvc-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.718
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-webmvc-portlet-4.0.9.RELEASE.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2017-12-06 11:15:15.718
+!MESSAGE Could not delete C:\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\10.Model2MVCShop(Ajax)\WEB-INF\lib\spring-websocket-4.0.9.RELEASE.jar. May be locked by another process.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 11:55:10.854
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 11:55:10.854
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 15:13:19.719
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 15:13:19.734
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 16:52:46.793
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-06 16:52:46.793
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+!SESSION 2017-12-07 09:04:23.090 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-12-07 09:04:42.703
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\301-6'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 11:15:16.627
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 11:15:16.632
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 14:24:15.909
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 14:24:15.909
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 16:04:56.634
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-07 16:04:56.640
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.wst.xml.core 4 4 2017-12-07 17:45:59.246
+!MESSAGE IStructuredDocumentRegion management failed.
+!STACK 0
+org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementException: IStructuredDocumentRegion management failed.
+	at org.eclipse.wst.xml.core.internal.document.XMLModelParser.removeStructuredDocumentRegion(XMLModelParser.java:2200)
+	at org.eclipse.wst.xml.core.internal.document.XMLModelParser.replaceStructuredDocumentRegions(XMLModelParser.java:2339)
+	at org.eclipse.wst.xml.core.internal.document.DOMModelImpl.nodesReplaced(DOMModelImpl.java:737)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument._fireEvent(BasicStructuredDocument.java:600)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.fireStructuredDocumentEvent(BasicStructuredDocument.java:1198)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.internalReplaceText(BasicStructuredDocument.java:1979)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replaceText(BasicStructuredDocument.java:2423)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replaceText(BasicStructuredDocument.java:2408)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.access$2(JobSafeStructuredDocument.java:1)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument$3.run(JobSafeStructuredDocument.java:141)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.sse.ui.EditorExecutionContext.execute(EditorExecutionContext.java:149)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.replaceText(JobSafeStructuredDocument.java:144)
+	at org.eclipse.wst.sse.core.internal.text.BasicStructuredDocument.replace(BasicStructuredDocument.java:2368)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.access$0(JobSafeStructuredDocument.java:1)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument$1.run(JobSafeStructuredDocument.java:103)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.wst.sse.ui.EditorExecutionContext.execute(EditorExecutionContext.java:149)
+	at org.eclipse.wst.sse.core.internal.text.JobSafeStructuredDocument.replace(JobSafeStructuredDocument.java:106)
+	at org.eclipse.jface.text.projection.ProjectionTextStore.replace(ProjectionTextStore.java:103)
+	at org.eclipse.jface.text.AbstractDocument.replace(AbstractDocument.java:1095)
+	at org.eclipse.jface.text.AbstractDocument.replace(AbstractDocument.java:1120)
+	at org.eclipse.jface.text.projection.ProjectionDocument.replace(ProjectionDocument.java:625)
+	at org.eclipse.jface.text.DefaultDocumentAdapter.replaceTextRange(DefaultDocumentAdapter.java:233)
+	at org.eclipse.swt.custom.StyledText.modifyContent(StyledText.java:7355)
+	at org.eclipse.swt.custom.StyledText.sendKeyEvent(StyledText.java:8203)
+	at org.eclipse.swt.custom.StyledText.doBackspace(StyledText.java:2311)
+	at org.eclipse.swt.custom.StyledText.invokeAction(StyledText.java:7144)
+	at org.eclipse.swt.custom.StyledText.handleKey(StyledText.java:6007)
+	at org.eclipse.swt.custom.StyledText.handleKeyDown(StyledText.java:6034)
+	at org.eclipse.swt.custom.StyledText.lambda$1(StyledText.java:5732)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1103)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1088)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1130)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1126)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1547)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4962)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:364)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4843)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:359)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5178)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessageW(Native Method)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(OS.java:2560)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3815)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1044)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SESSION 2017-12-08 09:00:30.189 -----------------------------------------------
+eclipse.buildId=4.7.0.I20170612-0950
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-12-08 09:00:48.769
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\301-6'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2017-12-08 09:00:55.051
+!MESSAGE Error occurred while deleting: /11.Model2MVCShop/build/classes/com
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:773)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: Could not delete '/11.Model2MVCShop/build/classes/com'.
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:366)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:358)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:810)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1781)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:760)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class.
+java.nio.file.FileSystemException: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다.
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:220)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:137)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:63)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:151)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:363)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:358)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:810)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1781)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:760)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2017-12-08 09:00:55.053
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2017-12-08 09:00:55.053
+!MESSAGE Could not delete '/11.Model2MVCShop/build/classes/com'.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:366)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:358)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:810)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1781)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:760)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: Problems encountered while deleting files.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class.
+java.nio.file.FileSystemException: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다.
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:220)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:137)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:63)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:151)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:363)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:358)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:810)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1781)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:760)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2.
+Contains: Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com.
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2017-12-08 09:00:55.054
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Problems encountered while deleting files.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class.
+!STACK 0
+java.nio.file.FileSystemException: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl\PurchaseServiceImpl.class: 다른 프로세스가 파일을 사용 중이기 때문에 프로세스가 액세스 할 수 없습니다.
+
+	at sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+	at sun.nio.fs.WindowsFileSystemProvider.implDelete(Unknown Source)
+	at sun.nio.fs.AbstractFileSystemProvider.deleteIfExists(Unknown Source)
+	at java.nio.file.Files.deleteIfExists(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:220)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.internalDelete(LocalFile.java:248)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:137)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:63)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:151)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:111)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:363)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:358)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:810)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1781)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:760)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.cleanOutputFolders(BatchImageBuilder.java:116)
+	at org.eclipse.jdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:47)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:256)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:175)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase\impl.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service\purchase.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc\service.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2\mvc.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com\model2.
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2017-12-08 09:00:55.054
+!MESSAGE Could not delete: C:\Users\301-6\git\07Project\07.Model2MVCShop(URI,pattern)\build\classes\com.
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:38:09.482
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:38:09.488
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:39:22.057
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:39:22.064
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:39:22.087
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 09:39:22.092
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 10:20:28.074
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2017-12-08 10:20:28.079
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

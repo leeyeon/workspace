@@ -26,7 +26,12 @@ public class PurchaseRestHttpClientApp {
 
 	public static void main(String[] args) throws Exception {
 		//PurchaseRestHttpClientApp.getPurchaseTest();
-		PurchaseRestHttpClientApp.addPurchaseTest();
+		//PurchaseRestHttpClientApp.addPurchaseTest();
+		//PurchaseRestHttpClientApp.updatePurchaseTest();
+		//PurchaseRestHttpClientApp.listPurchaseTest();
+		//PurchaseRestHttpClientApp.listSaleTest();
+		//PurchaseRestHttpClientApp.updateTranCodeTest();
+		PurchaseRestHttpClientApp.updateTranCodeTest();
 	}
 	
 	public static void getPurchaseTest() throws Exception {
@@ -108,18 +113,21 @@ public class PurchaseRestHttpClientApp {
 		
 		HttpClient httpClient = new DefaultHttpClient();
 		
-		String url = "http://127.0.0.1:8080/product/json/updateProduct";
+		String url = "http://127.0.0.1:8080/purchase/json/updatePurchase";
 		
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setHeader("Accept", "application/json");
 		httpPost.setHeader("Content-Type", "application/json");
 		
 		JSONObject json = new JSONObject();
-		json.put("prodName", "UpdatetestRest");
-		json.put("prodDetail", "UpdatetestRest");
-		json.put("manuDate", "2017-11-29");
-		json.put("price", 1111);
-		json.put("amount", 5);
+		json.put("tranNo", 10042);
+		json.put("paymentOption", "0");
+		json.put("receiverName", "테스트");
+		json.put("receiverPhone", "010-1234-5678");
+		json.put("divyAddr", "테스트");
+		json.put("divyRequest", "테스트");
+		json.put("divyDate", "20171204");
+		json.put("amount", 1);
 		
 		HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
 		
@@ -144,9 +152,11 @@ public class PurchaseRestHttpClientApp {
 		String serverData = br.readLine();
 		System.out.println(serverData);
 		
-		//==> 내용읽기(JSON Value 확인)
-		JSONObject jsonobj = (JSONObject)JSONValue.parse(serverData);
-		System.out.println(jsonobj);
+		if(serverData.equals("true")) {
+			System.out.println("성공");
+		} else {
+			System.out.println("실패");
+		}
 		
 	}
 	
@@ -154,17 +164,13 @@ public class PurchaseRestHttpClientApp {
 		
 		HttpClient httpClient = new DefaultHttpClient();
 		
-		String url = "http://127.0.0.1:8080/product/json/listProduct";
+		String url = "http://127.0.0.1:8080/purchase/json/listPurchase/user02";
 		
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setHeader("Accept", "application/json");
 		httpPost.setHeader("Content-Type", "application/json");
 		
 		JSONObject json = new JSONObject();
-		json.put("searchCondition", "");
-		json.put("searchKeyword", "");
-		json.put("searchOrderbyPrice", "");
-		json.put("searchOrderbyName", "");
 		HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
 		
 		System.out.println("JSON :: "+json);
@@ -195,16 +201,113 @@ public class PurchaseRestHttpClientApp {
 		// CodeHaus...
 		ObjectMapper objectMapper = new ObjectMapper();
 		//objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		List<Product> list = objectMapper.readValue(jsonobj.get("list").toString(), 
-				new TypeReference<List<Product>>() {});
+		List<Purchase> list = objectMapper.readValue(jsonobj.get("list").toString(), 
+				new TypeReference<List<Purchase>>() {});
 		Page resultPage = objectMapper.readValue(jsonobj.get("resultPage").toString(), Page.class);
 		Search search = objectMapper.readValue(jsonobj.get("search").toString(), Search.class);
 		System.out.println("resultPage :: "+resultPage);
 		System.out.println("search :: "+search);
 		
-		for (Product product : list) {
-			System.out.println(product);
+		for (Purchase purchase : list) {
+			System.out.println(purchase);
 		}
 		
+	}
+	
+	public static void listSaleTest() throws Exception {
+		
+		HttpClient httpClient = new DefaultHttpClient();
+		
+		String url = "http://127.0.0.1:8080/purchase/json/listSale";
+		
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setHeader("Accept", "application/json");
+		httpPost.setHeader("Content-Type", "application/json");
+		
+		JSONObject json = new JSONObject();
+		HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
+		
+		System.out.println("JSON :: "+json);
+
+		httpPost.setEntity(httpEntity01);
+		HttpResponse httpResponse = httpClient.execute(httpPost);
+		
+		//==> Response 확인
+		System.out.println(httpResponse);
+		System.out.println();
+
+		//==> Response 중 entity(DATA) 확인
+		HttpEntity httpEntity = httpResponse.getEntity();
+		System.out.println("httpEntity :: "+httpEntity);
+		
+		//==> InputStream 생성
+		InputStream is = httpEntity.getContent();
+		BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+		
+		System.out.println("[ Server 에서 받은 Data 확인 ] ");
+		String serverData = br.readLine();
+		//System.out.println(serverData);
+		
+		//==> 내용읽기(JSON Value 확인)
+		JSONObject jsonobj = (JSONObject)JSONValue.parse(serverData);
+		System.out.println(jsonobj);
+		
+		// CodeHaus...
+		ObjectMapper objectMapper = new ObjectMapper();
+		//objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		List<Purchase> list = objectMapper.readValue(jsonobj.get("list").toString(), 
+				new TypeReference<List<Purchase>>() {});
+		Page resultPage = objectMapper.readValue(jsonobj.get("resultPage").toString(), Page.class);
+		Search search = objectMapper.readValue(jsonobj.get("search").toString(), Search.class);
+		System.out.println("resultPage :: "+resultPage);
+		System.out.println("search :: "+search);
+		
+		for (Purchase purchase : list) {
+			System.out.println(purchase);
+		}
+	}
+
+	public static void updateTranCodeTest() throws Exception {
+		
+		HttpClient httpClient = new DefaultHttpClient();
+		
+		String url = "http://127.0.0.1:8080/purchase/json/updateTranCode";
+		
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setHeader("Accept", "application/json");
+		httpPost.setHeader("Content-Type", "application/json");
+		
+		JSONObject json = new JSONObject();
+		json.put("tranNo", 10101);
+		json.put("tranCode", 2);
+		
+		HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
+		
+		System.out.println("JSON :: "+json);
+
+		httpPost.setEntity(httpEntity01);
+		HttpResponse httpResponse = httpClient.execute(httpPost);
+		
+		//==> Response 확인
+		System.out.println(httpResponse);
+		System.out.println();
+
+		//==> Response 중 entity(DATA) 확인
+		HttpEntity httpEntity = httpResponse.getEntity();
+		System.out.println("httpEntity :: "+httpEntity);
+		
+		//==> InputStream 생성
+		InputStream is = httpEntity.getContent();
+		BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+		
+		System.out.println("[ Server 에서 받은 Data 확인 ] ");
+		String serverData = br.readLine();
+		System.out.println(serverData);
+		
+		if(serverData.equals("true")) {
+			System.out.println("성공");
+		} else {
+			System.out.println("실패");
+		}
 	}
 }

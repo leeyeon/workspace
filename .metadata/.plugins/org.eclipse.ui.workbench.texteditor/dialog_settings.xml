@@ -2,12 +2,17 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="updateTranCode" key="selection"/>
+		<item value="form" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="form"/>
+			<item value="form&apos;"/>
+			<item value="data.price"/>
+			<item value="manuDate"/>
+			<item value="str_target"/>
 			<item value="updateTranCode"/>
 			<item value="tran"/>
 			<item value="tranNo"/>
@@ -18,11 +23,6 @@
 			<item value=".do"/>
 			<item value="purchaseAmount"/>
 			<item value="menu"/>
-			<item value="user002"/>
-			<item value="user001"/>
-			<item value="purchase"/>
-			<item value="role"/>
-			<item value="currentPage"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
@@ -30,9 +30,9 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="288" key="DIALOG_WIDTH"/>
-		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 		<item value="391" key="DIALOG_HEIGHT"/>
-		<item value="1116" key="DIALOG_X_ORIGIN"/>
-		<item value="132" key="DIALOG_Y_ORIGIN"/>
+		<item value="580" key="DIALOG_X_ORIGIN"/>
+		<item value="322" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

@@ -127,7 +127,7 @@
 			
 
       
-      <Context docBase="09.Model2MVCShop(jQuery)" path="/" reloadable="true" source="org.eclipse.jst.jee.server:09.Model2MVCShop(jQuery)"/><Context docBase="Ajax" path="/Ajax" reloadable="true" source="org.eclipse.jst.jee.server:Ajax"/></Host>
+      <Context docBase="11.Model2MVCShop" path="/" reloadable="true" source="org.eclipse.jst.jee.server:11.Model2MVCShop"/><Context docBase="20.OpenAPI" path="/OpenAPI" reloadable="true" source="org.eclipse.jst.jee.server:20.OpenAPI"/></Host>
     </Engine>
   </Service>
 </Server>

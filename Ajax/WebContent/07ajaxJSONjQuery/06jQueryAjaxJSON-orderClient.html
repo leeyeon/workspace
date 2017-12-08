@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	
+	<!-- /////////////////////////////  변경된 부분 ////////////////////////
+		//==> XMLHttpRequest 객체를 얻는 function 은 ajaxUtil01.js
+		///////////////////////////////////////////////////////////////////////////////	 -->
+	 <!--  XMLHttpRequest 인스턴스 생성을  ajaxUtil01.js 모듈로 처리 -->
+	 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	 <script type="text/javascript" src="/Ajax/10common/ajaxUtil02.js"></script>
+	 <script type="text/javascript">
+		
+		//server로 get 방식 request    
+		function getCustomerInfo01(){
+
+			$.ajax(
+				{
+					url : "postJSON-orderServer.jsp",
+					method : "POST",
+					data : {
+								name : $("#name").val(),
+								phone : $("#phone").val()
+							},
+					dataType : "text",
+					success : function(serverData, status) {
+						alert(serverData);
+						
+						var JSONData = $.parseJSON(serverData);
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+				}
+			)
+
+		}
+		
+		function getCustomerInfo02(){
+
+			$.ajax(
+				{
+					url : "postJSON-orderServer.jsp",
+					method : "POST",
+					data : {
+								name : $("#name").val(),
+								phone : $("#phone").val()
+							},
+					dataType : "json",
+					success : function(JSONData, status) {
+						
+						var displayValue = "이름 : "+JSONData.name +"\n"
+							+ "전화 : "+JSONData.phone + "\n"
+							+ "주소 : "+JSONData.address;
+		
+						$("#address").val(displayValue);
+					}
+				}
+			)
+
+		}
+
+		$(function() {
+
+			$("form")[0].reset();
+			
+			$("textarea").bind("click", function() {
+				//getCustomerInfo01();
+				getCustomerInfo02();
+			})
+			
+		});
+		
+	 </script>
+</head>
+
+<body>
+
+	<form>
+	
+		<p>이 &nbsp;&nbsp;&nbsp;&nbsp; 름  :  
+				<input type="text" size="14" name="name"  id ="name"/>
+		</p>
+		
+		<p>전화번호 :  
+				<input type="text" size="14" name="phone"  id="phone"/>
+		</p>
+	
+		<p>주 &nbsp;&nbsp;&nbsp;&nbsp; 소 : </p>  
+	
+		<p>
+			<textarea 	rows="3" cols="50" name="address" id="address" >이름을 입력후 :: 여기에click...</textarea>	
+		</p>
+				
+		<p id="testInnerHtml">XXX<input type="submit" value="주문하기" id="submit"/>YYY</p>
+		
+	</form>
+	
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+<%@page import="org.json.simple.JSONObject"%>
 <%@page contentType="text/html; charset=EUC-KR" %>
 <%@page pageEncoding="EUC-KR"%>
 
@@ -20,8 +21,22 @@
 %>
 
 <%
-	 System.out.println("post-orderServer.jsp  ::   이름="+name+" 주소="+address+" 전화="+phone);
+	System.out.println("post-orderServer.jsp  ::   이름="+name+" 주소="+address+" 전화="+phone);
+
+	JSONObject obj = new JSONObject();
+	obj.put("name", name);
+	obj.put("address", address);
+	obj.put("phone", phone);
+	
+	System.out.println(obj);
+
+
 %>
+
+<%= obj %>
+
+<%-- 
 이름 : <%= name %> 고객님
 전화 : <%= phone %>
 주소 : <%= address %>
+--%>

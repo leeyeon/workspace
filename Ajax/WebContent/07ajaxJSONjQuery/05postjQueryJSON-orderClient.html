@@ -21,14 +21,7 @@
 			var name = $("#name").val();
 			var phone = $("#phone").val();
 			
-			var url ="post-orderServer.jsp";
-			
-			//연결초기화 : open( Method , URL , 비동기유무 )
-			//request.open("POST",url,true);
-			//send() 호출전 아래의 속성을 지정 : CallBackFunction 지정	
-			//request.onreadystatechange =  updatePage;
-	 		
-			//request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			var url ="postJSON-orderServer.jsp";
 			
 			var queryString = "name="+name+"&phone="+phone;
 			
@@ -43,17 +36,15 @@
 	 		
 	 		if ( request.readyState ==4) {
 	 			if(request.status == 200){
-			 		//var serverData = request.responseText;
-			 		var displayValue = $.trim(request.responseText);
+			 		var serverData = request.responseText;
 			 		
-			 		alert("server로 부터 받은 내용 : \n"+displayValue);
+			 		alert("server로 부터 받은 내용 : \n"+serverData);
 
-			 		//var testInnerHtml = document.getElementById("testInnerHtml");
-			 		//alert("예1 :: _"+testInnerHtml.innerHTML+"_");
-			 		//alert("예2 :: _"+testInnerHtml.innerText+"_");
+			 		var JSONData = $.parseJSON(serverData);
 			 		
-			 		alert("예1 :: _"+$("#testInnerHtml").html()+"_");
-			 		alert("예2 :: _"+$("#testInnerHtml").text()+"_");
+			 		var displayValue = "이름 : "+JSONData.name +"\n"
+			 							+ "전화 : "+JSONData.phone + "\n"
+			 							+ "주소 : "+JSONData.address;
 			 		
 			 		$("#address").text(displayValue);
 					
@@ -64,10 +55,8 @@
 	 	}
 		
 		$(function() {
-			
-			//$(window).bind("load", function() {
+
 			$("form")[0].reset();
-			//});
 			
 			$("textarea").bind("click", function() {
 				getCustomerInfo();

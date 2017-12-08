@@ -14,6 +14,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
@@ -26,10 +27,11 @@ public class ProductRestHttpClientApp {
 	public static void main(String[] args) throws Exception {
 		//ProductRestHttpClientApp.getProductTest();
 		//ProductRestHttpClientApp.addProductTest();
-		ProductRestHttpClientApp.updateProductTest();
-		//ProductRestHttpClientApp.listProductTest();
+		//ProductRestHttpClientApp.updateProductTest();
+		ProductRestHttpClientApp.listProductTest();
+		//ProductRestHttpClientApp.listProductNameTest();
 	}
-	
+
 	public static void getProductTest() throws Exception {
 		
 		HttpClient httpClient = new DefaultHttpClient();
@@ -163,10 +165,7 @@ public class ProductRestHttpClientApp {
 		httpPost.setHeader("Content-Type", "application/json");
 		
 		JSONObject json = new JSONObject();
-		json.put("searchCondition", "");
-		json.put("searchKeyword", "");
-		json.put("searchOrderbyPrice", "");
-		json.put("searchOrderbyName", "");
+		json.put("currentPage", 2);
 		HttpEntity httpEntity01 = new StringEntity(json.toString(),"utf-8");
 		
 		System.out.println("JSON :: "+json);
@@ -208,5 +207,37 @@ public class ProductRestHttpClientApp {
 			System.out.println(product);
 		}
 		
+	}
+	
+	
+	public static void listProductNameTest() throws Exception {
+		
+		HttpClient httpClient = new DefaultHttpClient();
+
+		String url= 	"http://127.0.0.1:8080/product/json/listProductName";
+		
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setHeader("Accept", "application/json");
+		httpPost.setHeader("Content-Type", "application/json");
+		
+		String prodName = "a";
+		
+		HttpEntity httpEntity01 = new StringEntity(prodName,"utf-8");
+		
+		httpPost.setEntity(httpEntity01);
+		HttpResponse httpResponse = httpClient.execute(httpPost);
+		HttpEntity httpEntity = httpResponse.getEntity();
+		System.out.println(httpResponse);
+		
+		InputStream is = httpEntity.getContent();
+		BufferedReader br = new BufferedReader(new InputStreamReader(is,"UTF-8"));
+		
+		System.out.println("[ Server 에서 받은 Data 확인 ] ");		
+		JSONArray jsonobj = (JSONArray)JSONValue.parse(br);
+		System.out.println(jsonobj);
+		ObjectMapper objectMapper = new ObjectMapper();
+		List<String> list = objectMapper.readValue(jsonobj.toString(), 
+				new TypeReference<List<String>>() {});
+
 	}
 }
